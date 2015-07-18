@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>45B7F1B0-5783-4B48-9802-E43742229DB8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NantouCuisine</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6C8455F9419DA4197F72D3CE2305DC5BA02732DE</key>
+		<string>https://github.com/firefirstfu/NantouCuisine.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>NantouCuisine.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6C8455F9419DA4197F72D3CE2305DC5BA02732DE</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/firefirstfu/NantouCuisine.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6C8455F9419DA4197F72D3CE2305DC5BA02732DE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6C8455F9419DA4197F72D3CE2305DC5BA02732DE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NantouCuisine</string>
+		</dict>
+	</array>
+</dict>
+</plist>
