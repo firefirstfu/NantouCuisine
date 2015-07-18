@@ -1,7 +1,7 @@
 
-#import "DetailCuisineTableViewCell.h"
+#import "LocalCuisineTBViewCell.h"
 
-@implementation DetailCuisineTableViewCell
+@implementation LocalCuisineTBViewCell
 
 - (void)awakeFromNib {
     // Initialization code
