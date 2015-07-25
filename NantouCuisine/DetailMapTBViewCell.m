@@ -1,7 +1,6 @@
+#import "DetailMapTBViewCell.h"
 
-#import "DetailLocalCuisineTBViewCell.h"
-
-@implementation DetailLocalCuisineTBViewCell
+@implementation DetailMapTBViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -10,6 +9,5 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
-
 
 @end

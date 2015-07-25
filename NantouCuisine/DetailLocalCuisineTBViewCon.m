@@ -1,80 +1,119 @@
 
 #import "DetailLocalCuisineTBViewCon.h"
+#import "DetailLocalCuisineTBViewCell.h"
+#import <UIImageView+AFNetworking.h>
+
+#import "Restaurant.h"
 
 @interface DetailLocalCuisineTBViewCon ()
 
+@property(nonatomic, strong) DetailLocalCuisineTBViewCell *cell;
+@property(nonatomic, assign) CGFloat imageHeight;
+
 @end
+
 
 @implementation DetailLocalCuisineTBViewCon
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 7;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    //取得各別的Cell的Identifier
+    NSString *identifier = [NSString stringWithFormat:@"cell%ld", indexPath.row];
+    //和cell取得關聯
+    _cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    //設定文字的粗體和大小
+    _cell.restaurantNameLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+    _cell.addressLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+    _cell.phoneNumberLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+    _cell.webSiteLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+    _cell.descriptionLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+
+
+    //餐廳名稱
+    _cell.restaurantNameLbl.text = _restaurant.name;
+    //餐廳地址
+    _cell.addressLbl.text = _restaurant.address;
+    //餐廳電話
+    _cell.phoneNumberLbl.text = _restaurant.phoneNumber;
+    //餐廳網址
+    _cell.webSiteLbl.text = _restaurant.webSite;
+    //餐廳簡述
+    _cell.descriptionLbl.text  = _restaurant.introduction;
     
-    // Configure the cell...
     
-    return cell;
+    //餐廳照片
+    _cell.storeImageView.contentMode = UIViewContentModeScaleToFill;
+    //圖片網址有中文的字串要先編碼為UTF-8的格式
+    NSString *urlStr = [_restaurant.imagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    __weak DetailLocalCuisineTBViewCell *weakCell = _cell;
+    [ _cell.storeImageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"1.jpg"]
+                                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+                                            weakCell.storeImageView.image = image;
+                                            [weakCell setNeedsLayout];
+                                        }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+                                            _cell.storeImageView.image = [UIImage imageNamed:@"1.jpg"];
+                                        }];
+    //segmented選單增加Method
+    [_cell.selectInformationMenu addTarget:self action:@selector(segmentedAction:) forControlEvents:UIControlEventValueChanged];
+    return _cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+//segmented的Method
+-(void) segmentedAction:(id) sender{
+    switch ([sender selectedSegmentIndex]) {
+        case 1:
+            //StoryBoard跳轉
+            [self gotAnother];
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+//StoryBoard跳轉
+-(void)gotAnother{
+    UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_2"];
+    [self.navigationController pushViewController:vc animated:NO];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+//自訂TableViewCell高度
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+   
+    if (indexPath.row == 0) {
+        if (_imageHeight <= 10) {
+             _imageHeight = _cell.storeImageView.frame.size.height - 1.0;
+        }
+        return _imageHeight;
+    }else if (indexPath.row == 1){
+        return 35.0f;
+    }else if (indexPath.row == 6){
+        return 200.0f;
+    }else{
+        return 50.0f;
+    }
 }
-*/
+
+
 
 /*
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

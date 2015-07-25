@@ -7,12 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		105D72331B5A0EF600F624BD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72321B5A0EF600F624BD /* MapKit.framework */; };
-		105D72351B5A0F0000F624BD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72341B5A0F0000F624BD /* CoreLocation.framework */; };
+		102645561B5CB92500D91102 /* MapTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 102645551B5CB92500D91102 /* MapTBViewCon.m */; };
+		102645591B5CBB8F00D91102 /* DetailMapTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 102645581B5CBB8F00D91102 /* DetailMapTBViewCell.m */; };
+		102645991B5CE48600D91102 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72341B5A0F0000F624BD /* CoreLocation.framework */; };
+		1026459A1B5CE48B00D91102 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72321B5A0EF600F624BD /* MapKit.framework */; };
+		104C9AB41B5FE5C000790BDB /* NetWorkingManamger.m in Sources */ = {isa = PBXBuildFile; fileRef = 104C9AB31B5FE5C000790BDB /* NetWorkingManamger.m */; };
+		105318E41B5E7BA8006708E5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E31B5E7BA8006708E5 /* MapViewController.m */; };
+		105318E71B5E7F6C006708E5 /* collectCuisineTBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E61B5E7F6C006708E5 /* collectCuisineTBController.m */; };
+		105318EA1B5E800A006708E5 /* collectCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E91B5E800A006708E5 /* collectCuisineTBViewCell.m */; };
+		105318ED1B5F1C30006708E5 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318EC1B5F1C30006708E5 /* Restaurant.m */; };
+		105318F01B5F1EB0006708E5 /* RestaurantCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */; };
+		105775441B617046005374C7 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 105775431B617046005374C7 /* 1.jpg */; };
 		105D72381B5A14C500F624BD /* LocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D72371B5A14C500F624BD /* LocalCuisineTBViewCon.m */; };
 		105D723B1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723A1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m */; };
 		105D723E1B5A155E00F624BD /* LocalCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723D1B5A155E00F624BD /* LocalCuisineTBViewCell.m */; };
 		105D72411B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D72401B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m */; };
+		105D72681B5BEE9800F624BD /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 105D72661B5BEE9800F624BD /* 7.jpg */; };
+		105D72691B5BEE9800F624BD /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 105D72671B5BEE9800F624BD /* 6.jpg */; };
+		105D726C1B5C05BB00F624BD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D726B1B5C05BB00F624BD /* WebViewController.m */; };
 		1097C75E1B506A0C0071E943 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C75D1B506A0C0071E943 /* main.m */; };
 		1097C7611B506A0C0071E943 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C7601B506A0C0071E943 /* AppDelegate.m */; };
 		1097C7641B506A0C0071E943 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C7631B506A0C0071E943 /* ViewController.m */; };
@@ -20,7 +32,7 @@
 		1097C7691B506A0C0071E943 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1097C7681B506A0C0071E943 /* Images.xcassets */; };
 		1097C76C1B506A0C0071E943 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1097C76A1B506A0C0071E943 /* LaunchScreen.xib */; };
 		1097C7781B506A0C0071E943 /* NantouCuisineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C7771B506A0C0071E943 /* NantouCuisineTests.m */; };
-		D9BC64A2AB7C758B14E90C91 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DDE342E5004CC7203E0937 /* libPods.a */; };
+		D9BC64A2AB7C758B14E90C91 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DDE342E5004CC7203E0937 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +46,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		102645541B5CB92500D91102 /* MapTBViewCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTBViewCon.h; sourceTree = "<group>"; };
+		102645551B5CB92500D91102 /* MapTBViewCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTBViewCon.m; sourceTree = "<group>"; };
+		102645571B5CBB8F00D91102 /* DetailMapTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMapTBViewCell.h; sourceTree = "<group>"; };
+		102645581B5CBB8F00D91102 /* DetailMapTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMapTBViewCell.m; sourceTree = "<group>"; };
+		104C9AB21B5FE5C000790BDB /* NetWorkingManamger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkingManamger.h; sourceTree = "<group>"; };
+		104C9AB31B5FE5C000790BDB /* NetWorkingManamger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkingManamger.m; sourceTree = "<group>"; };
+		105318E21B5E7BA8006708E5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		105318E31B5E7BA8006708E5 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		105318E51B5E7F6C006708E5 /* collectCuisineTBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCuisineTBController.h; sourceTree = "<group>"; };
+		105318E61B5E7F6C006708E5 /* collectCuisineTBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectCuisineTBController.m; sourceTree = "<group>"; };
+		105318E81B5E800A006708E5 /* collectCuisineTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCuisineTBViewCell.h; sourceTree = "<group>"; };
+		105318E91B5E800A006708E5 /* collectCuisineTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectCuisineTBViewCell.m; sourceTree = "<group>"; };
+		105318EB1B5F1C30006708E5 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		105318EC1B5F1C30006708E5 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		105318EE1B5F1EB0006708E5 /* RestaurantCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantCollection.h; sourceTree = "<group>"; };
+		105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantCollection.m; sourceTree = "<group>"; };
+		105775431B617046005374C7 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		105D72321B5A0EF600F624BD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		105D72341B5A0F0000F624BD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		105D72361B5A14C500F624BD /* LocalCuisineTBViewCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalCuisineTBViewCon.h; sourceTree = "<group>"; };
@@ -44,6 +73,10 @@
 		105D723D1B5A155E00F624BD /* LocalCuisineTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalCuisineTBViewCell.m; sourceTree = "<group>"; };
 		105D723F1B5A15A300F624BD /* DetailLocalCuisineTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLocalCuisineTBViewCell.h; sourceTree = "<group>"; };
 		105D72401B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLocalCuisineTBViewCell.m; sourceTree = "<group>"; };
+		105D72661B5BEE9800F624BD /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
+		105D72671B5BEE9800F624BD /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
+		105D726A1B5C05BB00F624BD /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		105D726B1B5C05BB00F624BD /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		1097C7581B506A0C0071E943 /* NantouCuisine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NantouCuisine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1097C75C1B506A0C0071E943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1097C75D1B506A0C0071E943 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,8 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				105D72351B5A0F0000F624BD /* CoreLocation.framework in Frameworks */,
-				105D72331B5A0EF600F624BD /* MapKit.framework in Frameworks */,
+				1026459A1B5CE48B00D91102 /* MapKit.framework in Frameworks */,
+				102645991B5CE48600D91102 /* CoreLocation.framework in Frameworks */,
 				D9BC64A2AB7C758B14E90C91 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,17 +116,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		105D722F1B59E2F300F624BD /* LocalCuisine */ = {
+		1026459F1B5D04F500D91102 /*  Master */ = {
 			isa = PBXGroup;
 			children = (
 				105D72361B5A14C500F624BD /* LocalCuisineTBViewCon.h */,
 				105D72371B5A14C500F624BD /* LocalCuisineTBViewCon.m */,
 				105D723C1B5A155E00F624BD /* LocalCuisineTBViewCell.h */,
 				105D723D1B5A155E00F624BD /* LocalCuisineTBViewCell.m */,
+			);
+			name = " Master";
+			sourceTree = "<group>";
+		};
+		102645A01B5D051700D91102 /* Detail_Info */ = {
+			isa = PBXGroup;
+			children = (
 				105D72391B5A151A00F624BD /* DetailLocalCuisineTBViewCon.h */,
 				105D723A1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m */,
 				105D723F1B5A15A300F624BD /* DetailLocalCuisineTBViewCell.h */,
 				105D72401B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m */,
+				102645A51B5D0F6800D91102 /* DetailMap */,
+			);
+			name = Detail_Info;
+			sourceTree = "<group>";
+		};
+		102645A11B5D058500D91102 /* Web_Info */ = {
+			isa = PBXGroup;
+			children = (
+				105D726A1B5C05BB00F624BD /* WebViewController.h */,
+				105D726B1B5C05BB00F624BD /* WebViewController.m */,
+			);
+			name = Web_Info;
+			sourceTree = "<group>";
+		};
+		102645A51B5D0F6800D91102 /* DetailMap */ = {
+			isa = PBXGroup;
+			children = (
+				102645541B5CB92500D91102 /* MapTBViewCon.h */,
+				102645551B5CB92500D91102 /* MapTBViewCon.m */,
+				102645571B5CBB8F00D91102 /* DetailMapTBViewCell.h */,
+				102645581B5CBB8F00D91102 /* DetailMapTBViewCell.m */,
+			);
+			name = DetailMap;
+			sourceTree = "<group>";
+		};
+		102645A61B5D34ED00D91102 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1097C7651B506A0C0071E943 /* Main.storyboard */,
+				105775431B617046005374C7 /* 1.jpg */,
+				105D72671B5BEE9800F624BD /* 6.jpg */,
+				105D72661B5BEE9800F624BD /* 7.jpg */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		104C9AB51B5FE5C900790BDB /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+				104C9AB21B5FE5C000790BDB /* NetWorkingManamger.h */,
+				104C9AB31B5FE5C000790BDB /* NetWorkingManamger.m */,
+			);
+			name = NetWorking;
+			sourceTree = "<group>";
+		};
+		105D722F1B59E2F300F624BD /* LocalCuisine */ = {
+			isa = PBXGroup;
+			children = (
+				1026459F1B5D04F500D91102 /*  Master */,
+				102645A01B5D051700D91102 /* Detail_Info */,
+				102645A11B5D058500D91102 /* Web_Info */,
 			);
 			name = LocalCuisine;
 			sourceTree = "<group>";
@@ -101,6 +192,8 @@
 		105D72301B59E31900F624BD /* CuisineMap */ = {
 			isa = PBXGroup;
 			children = (
+				105318E21B5E7BA8006708E5 /* MapViewController.h */,
+				105318E31B5E7BA8006708E5 /* MapViewController.m */,
 			);
 			name = CuisineMap;
 			sourceTree = "<group>";
@@ -108,6 +201,10 @@
 		105D72311B59E33E00F624BD /* CollectCuisine */ = {
 			isa = PBXGroup;
 			children = (
+				105318E51B5E7F6C006708E5 /* collectCuisineTBController.h */,
+				105318E61B5E7F6C006708E5 /* collectCuisineTBController.m */,
+				105318E81B5E800A006708E5 /* collectCuisineTBViewCell.h */,
+				105318E91B5E800A006708E5 /* collectCuisineTBViewCell.m */,
 			);
 			name = CollectCuisine;
 			sourceTree = "<group>";
@@ -135,7 +232,7 @@
 		1097C75A1B506A0C0071E943 /* NantouCuisine */ = {
 			isa = PBXGroup;
 			children = (
-				1097C7651B506A0C0071E943 /* Main.storyboard */,
+				102645A61B5D34ED00D91102 /* View */,
 				1097C78A1B506C760071E943 /* Controller */,
 				1097C78B1B506C8C0071E943 /* Model */,
 				1097C75B1B506A0C0071E943 /* Supporting Files */,
@@ -188,6 +285,11 @@
 		1097C78B1B506C8C0071E943 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				105318EB1B5F1C30006708E5 /* Restaurant.h */,
+				105318EC1B5F1C30006708E5 /* Restaurant.m */,
+				105318EE1B5F1EB0006708E5 /* RestaurantCollection.h */,
+				105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */,
+				104C9AB51B5FE5C900790BDB /* NetWorking */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -296,6 +398,9 @@
 				1097C7671B506A0C0071E943 /* Main.storyboard in Resources */,
 				1097C76C1B506A0C0071E943 /* LaunchScreen.xib in Resources */,
 				1097C7691B506A0C0071E943 /* Images.xcassets in Resources */,
+				105775441B617046005374C7 /* 1.jpg in Resources */,
+				105D72681B5BEE9800F624BD /* 7.jpg in Resources */,
+				105D72691B5BEE9800F624BD /* 6.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,10 +454,19 @@
 				105D723B1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m in Sources */,
 				105D72411B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m in Sources */,
 				105D723E1B5A155E00F624BD /* LocalCuisineTBViewCell.m in Sources */,
+				105D726C1B5C05BB00F624BD /* WebViewController.m in Sources */,
+				105318EA1B5E800A006708E5 /* collectCuisineTBViewCell.m in Sources */,
+				102645591B5CBB8F00D91102 /* DetailMapTBViewCell.m in Sources */,
 				1097C7641B506A0C0071E943 /* ViewController.m in Sources */,
 				1097C7611B506A0C0071E943 /* AppDelegate.m in Sources */,
+				105318ED1B5F1C30006708E5 /* Restaurant.m in Sources */,
+				105318E71B5E7F6C006708E5 /* collectCuisineTBController.m in Sources */,
 				105D72381B5A14C500F624BD /* LocalCuisineTBViewCon.m in Sources */,
+				105318F01B5F1EB0006708E5 /* RestaurantCollection.m in Sources */,
+				102645561B5CB92500D91102 /* MapTBViewCon.m in Sources */,
 				1097C75E1B506A0C0071E943 /* main.m in Sources */,
+				105318E41B5E7BA8006708E5 /* MapViewController.m in Sources */,
+				104C9AB41B5FE5C000790BDB /* NetWorkingManamger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
