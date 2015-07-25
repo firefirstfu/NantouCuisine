@@ -178,11 +178,22 @@
                                       //大頭針圖片
                                       theImageView.image = image;
                                       //大頭針附加餐廳圖片
-                                      customPin.rightCalloutAccessoryView = theImageView;
+                                      customPin.leftCalloutAccessoryView = theImageView;
                                   }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
                                       theImageView.image = [UIImage imageNamed:@"1.jpg"];
                                   }];
     
+    
+    //導航功能加入
+    //客制化大頭針-Add Right Callout Accessory View
+    //UIButtonTypeDetailDisclosure-->就是旁邊的驚嘆號
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    //用程式碼去實現Button的監聽
+    //forControlEvents-->參數是事件的種類
+    //@selector-->把方法的名稱包裝成一個物件
+    [rightButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
+    customPin.rightCalloutAccessoryView = rightButton;
+
     //地圖移動到指定位置-->沒有開啟追蹤時用
     if (_isFirstLocationReceived ==false) {
         //不用加星號，因為本質是c語言的strct。只一個資料儲存的東西(不是物件)
@@ -198,6 +209,10 @@
         [_cell.restaurantMapView setRegion:region animated:NO];
         _isFirstLocationReceived = YES;
     }
+    
+    
+    
+    
     return customPin;
 }
 
@@ -207,5 +222,35 @@
     [_cell.restaurantMapView selectAnnotation:pinView.annotation animated:YES];
 }
 
+
+
+//導航按鈕-->地址轉經緯度後，開始導航(結合—>轉經緯度+導航)
+-(void)buttonPressed{
+    NSLog(@"gggg");
+    
+    //創造第1個MapItem—>導航用的專屬物件(屬於MapKit)-->出發地
+    MKPlacemark *sourcePlace = [[MKPlacemark alloc] initWithCoordinate:_locationManager.location.coordinate addressDictionary:nil];
+    //地圖導航用的物件-->出發地
+    MKMapItem *sourceMapItem = [[MKMapItem alloc] initWithPlacemark:sourcePlace];
+    
+    
+    //創造第2個MapItem—>導航用的專屬物件(屬於MapKit)-->目的地
+    CLLocationCoordinate2D targetCoordinate =CLLocationCoordinate2DMake([_restaurant.latitude doubleValue],
+                                                                        [_restaurant.longitude doubleValue]);
+    MKPlacemark *targetPlace = [[MKPlacemark alloc] initWithCoordinate:targetCoordinate addressDictionary:nil];
+    //地圖導航用的物件-->目的地
+    MKMapItem *targetMapItem = [[MKMapItem alloc] initWithPlacemark:targetPlace];
+    targetMapItem.name = _restaurant.name;
+    targetMapItem.phoneNumber = _restaurant.phoneNumber;
+    
+    //呼叫Apple Map後，可以帶參數過去
+    NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving};
+    //原地和指定地點的導航(單一指定位置)
+    [targetMapItem openInMapsWithLaunchOptions:options];
+    
+    //現在位置導航到目的地
+//    [MKMapItem openMapsWithItems:@[sourceMapItem, targetMapItem] launchOptions:options];
+
+}
 
 @end
