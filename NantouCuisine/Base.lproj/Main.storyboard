@@ -274,7 +274,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="webSiteLbl" destination="Blq-X7-CjZ" id="Aqb-OR-vGu"/>
-                                    <segue destination="fxd-Ig-OhU" kind="show" id="LaE-LC-74p"/>
+                                    <segue destination="fxd-Ig-OhU" kind="show" identifier="gotToWeb" id="LaE-LC-74p"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell6" rowHeight="48" id="OTq-oD-AKR" customClass="DetailLocalCuisineTBViewCell">
@@ -334,7 +334,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1v5-sa-tMF">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1v5-sa-tMF">
                                 <rect key="frame" x="0.0" y="0.0" width="338" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>

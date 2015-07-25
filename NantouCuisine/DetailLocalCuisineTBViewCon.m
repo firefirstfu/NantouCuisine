@@ -1,14 +1,20 @@
 
 #import "DetailLocalCuisineTBViewCon.h"
 #import "DetailLocalCuisineTBViewCell.h"
+#import "WebViewController.h"
+
+
+#import "NetWorkingManamger.h"
 #import <UIImageView+AFNetworking.h>
 
 #import "Restaurant.h"
+#import "MapTBViewCon.h"
+
 
 @interface DetailLocalCuisineTBViewCon ()
 
-@property(nonatomic, strong) DetailLocalCuisineTBViewCell *cell;
-@property(nonatomic, assign) CGFloat imageHeight;
+@property (nonatomic, strong) DetailLocalCuisineTBViewCell *cell;
+@property (nonatomic, assign) CGFloat imageHeight;
 
 @end
 
@@ -18,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
+
+
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -88,9 +96,23 @@
 
 //StoryBoard跳轉
 -(void)gotAnother{
-    UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_2"];
-    [self.navigationController pushViewController:vc animated:NO];
+    //沒有segue方式的傳值
+    MapTBViewCon *viewCtrl2 = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_2"];
+    viewCtrl2.restaurant = _restaurant;
+    [self.navigationController pushViewController:viewCtrl2 animated:NO];
 }
+
+
+//傳值到下一個ViewController
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"gotToWeb"]) {
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        WebViewController *targeView = segue.destinationViewController;
+        //餐廳網址
+        targeView.webURL = _restaurant.webSite;
+    }
+}
+
 
 
 //自訂TableViewCell高度
@@ -109,15 +131,4 @@
         return 50.0f;
     }
 }
-
-
-
-/*
-#pragma mark - Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

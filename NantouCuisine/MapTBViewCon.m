@@ -1,8 +1,10 @@
 
 #import "MapTBViewCon.h"
 #import "DetailMapTBViewCell.h"
+#import "DetailLocalCuisineTBViewCon.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import <UIImageView+AFNetworking.h>
 
 @interface MapTBViewCon ()<MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -10,10 +12,9 @@
 @property(nonatomic, strong) CLLocationManager *locationManager;
 //地理位置用
 @property(nonatomic, assign) BOOL isFirstLocationReceived;
- //現在位置
-@property(nonatomic, strong) CLLocation *currentLocation;
-//地址轉座標編碼時用
-@property(nonatomic,strong) CLPlacemark *placeMark;
+
+//座標轉地址編碼時用
+@property(nonatomic, strong) CLLocation *restaurantLocation;
 
 //tableViewcell
 @property(nonatomic, strong) DetailMapTBViewCell *cell;
@@ -41,26 +42,29 @@
     //開始計算所在位地置的功能
     [_locationManager startUpdatingLocation];
     
-    //地址轉換緯經度
+    
+
     //創造地理位置編碼員
     CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
-    NSString *address = @"南投縣埔里鎮仁愛路490號";
-    //開始編碼
-    [geoCoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error){
-        _placeMark = placemarks.lastObject;
-        NSLog(@"%f", _placeMark.location.coordinate.latitude);
-        NSLog(@"%f", _placeMark.location.coordinate.longitude);
-        
+    //餐廳經緯度轉CLLocation
+    _restaurantLocation = [[CLLocation alloc] initWithLatitude:[_restaurant.latitude doubleValue]
+                                                     longitude:[_restaurant.longitude doubleValue]];
+    //經緯度轉地址
+    [geoCoder reverseGeocodeLocation:_restaurantLocation completionHandler:^(NSArray *placemarks, NSError *error) {
         //創造大頭針物件
         MKPointAnnotation *myPoint = [[MKPointAnnotation alloc] init];
         //附加緯經度給-->大頭針座標
-        myPoint.coordinate = _placeMark.location.coordinate;
-        myPoint.title = @"埔里";
-        myPoint.subtitle = @"有田日本料理";
+        myPoint.coordinate = _restaurantLocation.coordinate;
+        //地區取區域別
+        CLPlacemark *placemark = placemarks[0];
+        myPoint.title = placemark.locality;
+        //餐廳所在區域別
+        myPoint.subtitle = _restaurant.name;
         //地圖附加大頭針
         [_cell.restaurantMapView addAnnotation:myPoint];
     }];
 }
+
 
 
 #pragma mark - Table view data source
@@ -79,8 +83,20 @@
     _cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     //餐廳照片
-    _cell.storeImageView.contentMode = UIViewContentModeScaleToFill;
-    _cell.storeImageView.image = [UIImage imageNamed:@"7.jpg"];
+    //圖片網址有中文的字串要先編碼為UTF-8的格式
+    NSString *urlStr = [_restaurant.imagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    __weak DetailMapTBViewCell *weakCell = _cell;
+    [ _cell.storeImageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"1.jpg"]
+                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+                                      _cell.storeImageView.contentMode = UIViewContentModeScaleToFill;
+                                      weakCell.storeImageView.image = image;
+                                      [weakCell setNeedsLayout];
+                                  }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+                                      _cell.storeImageView.image = [UIImage imageNamed:@"1.jpg"];
+                                  }];
+    
     //segmented選單增加Method
     [_cell.selectInformationMenu addTarget:self action:@selector(segmentedAction:) forControlEvents:UIControlEventValueChanged];
     //segmented預設值index設為地圖
@@ -105,10 +121,11 @@
 
 //StoryBoard跳轉
 -(void)gotAnother{
-    //創造要跳轉的viewController物件
-    UITableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_1"];
+    //沒有segue方式的傳值
+    DetailLocalCuisineTBViewCon *viewCtrl2 = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_1"];
     //跳轉到目地的storyBoard
-    [self.navigationController pushViewController:vc animated:NO];
+    viewCtrl2.restaurant = _restaurant;
+    [self.navigationController pushViewController:viewCtrl2 animated:NO];
 }
 
 //自訂TableViewCell高度
@@ -149,9 +166,22 @@
     //圖片栽剪成圓形
     theImageView.layer.cornerRadius = theImageView.frame.size.width/2;
     theImageView.clipsToBounds = YES;
-    theImageView.image = [UIImage imageNamed:@"7.jpg"];
-    //附加餐廳圖片
-    customPin.rightCalloutAccessoryView = theImageView;
+    
+    //餐廳照片
+    _cell.storeImageView.contentMode = UIViewContentModeScaleToFill;
+    //圖片網址有中文的字串要先編碼為UTF-8的格式
+    NSString *urlStr = [_restaurant.imagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [theImageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"1.jpg"]
+                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+                                      //大頭針圖片
+                                      theImageView.image = image;
+                                      //大頭針附加餐廳圖片
+                                      customPin.rightCalloutAccessoryView = theImageView;
+                                  }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+                                      theImageView.image = [UIImage imageNamed:@"1.jpg"];
+                                  }];
     
     //地圖移動到指定位置-->沒有開啟追蹤時用
     if (_isFirstLocationReceived ==false) {
@@ -159,9 +189,8 @@
         //把資料讀出來
         //coordinate-->座標
         MKCoordinateRegion region = _cell.restaurantMapView.region;
-        region.center = _placeMark.location.coordinate;
-        //控制地圖的縮放-->無段式縮放
-        //1度約1公里
+        region.center = _restaurantLocation.coordinate;
+        //控制地圖的縮放-->無段式縮放 -->1度約1公里
         region.span.latitudeDelta = 0.03;
         //控制地圖的縮放-->無段式縮放
         region.span.longitudeDelta = 0.03;
@@ -179,21 +208,4 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/*
- #pragma mark - Navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 @end

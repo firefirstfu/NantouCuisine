@@ -3,4 +3,6 @@
 
 @interface WebViewController : UIViewController
 
+@property(nonatomic, strong) NSString *webURL;
+
 @end

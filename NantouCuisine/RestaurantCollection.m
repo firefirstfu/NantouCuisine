@@ -14,7 +14,6 @@
 @end
 
 
-
 @implementation RestaurantCollection
 //初始化建構子
 -(id) init{
@@ -95,37 +94,6 @@
 
 
 
-
-
-
-
-
-//-(id)init{
-//    self = [super init];
-//    if(self){
-//        //創造資料庫物件
-//        WordDataDataBase *dataBaseObject = [WordDataDataBase new];
-//        //取得plist路徑
-//        dataBaseObject.plistPath =  [NSString stringWithFormat:@"%@/Documents/Property List.plist", NSHomeDirectory()];
-//        NSMutableDictionary *dataDict = [dataBaseObject getDataInPlist];
-//        
-//        NSArray *englishWordArray = [dataDict allKeys];
-//        NSArray *chineseWordArray = [dataDict allValues];
-//        
-
-//        //抽取Plist全部的單字卡
-//        for (NSInteger count = 0; count < [englishWordArray count]; count++) {
-//            WordCard *wordCard = [[WordCard alloc] init];
-//            wordCard.englishWord = englishWordArray[count];
-//            wordCard.chineseWord = chineseWordArray[count];
-//            wordCard.random4ChineseWord = [WordCardDeck createRandom4ChineseWord:chineseWordArray
-//                                                                    withWordCard:wordCard];
-//            [self addCard:wordCard];
-//        }
-//        return self;
-//    }
-//    return  nil;
-//}
 
 
 
