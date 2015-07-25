@@ -23,6 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //自適化TableViewCell高度
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 
@@ -57,8 +61,17 @@
     _cell.phoneNumberLbl.text = _restaurant.phoneNumber;
     //餐廳網址
     _cell.webSiteLbl.text = _restaurant.webSite;
+    //如果沒提供網址，則網址Row隱藏
+    if ([_cell.webSiteLbl.text length] == 0) {
+        _cell.webSiteLbl.text = @"未提供";
+        if (indexPath.row == 5) {
+//            _cell.hidden = YES;
+        }
+    }
     //餐廳簡述
-    _cell.descriptionLbl.text  = _restaurant.introduction;
+    //不可編輯
+    _cell.descriptionLbl.editable = NO;
+    _cell.descriptionLbl.text  = [_restaurant.introduction stringByReplacingOccurrencesOfString:@"" withString:@""];
     
     
     //餐廳照片
@@ -106,7 +119,6 @@
 //傳值到下一個ViewController
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"gotToWeb"]) {
-        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         WebViewController *targeView = segue.destinationViewController;
         //餐廳網址
         targeView.webURL = _restaurant.webSite;
@@ -115,20 +127,20 @@
 
 
 
-//自訂TableViewCell高度
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-   
-    if (indexPath.row == 0) {
-        if (_imageHeight <= 10) {
-             _imageHeight = _cell.storeImageView.frame.size.height - 1.0;
-        }
-        return _imageHeight;
-    }else if (indexPath.row == 1){
-        return 35.0f;
-    }else if (indexPath.row == 6){
-        return 200.0f;
-    }else{
-        return 50.0f;
-    }
-}
+////自訂TableViewCell高度
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//   
+//    if (indexPath.row == 0) {
+//        if (_imageHeight <= 10) {
+//             _imageHeight = _cell.storeImageView.frame.size.height - 1.0;
+//        }
+//        return _imageHeight;
+//    }else if (indexPath.row == 1){
+//        return 35.0f;
+//    }else if (indexPath.row == 6){
+//        return 200.0f;
+//    }else{
+//        return 50.0f;
+//    }
+//}
 @end

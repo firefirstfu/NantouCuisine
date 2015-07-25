@@ -14,7 +14,7 @@
 //餐廳網站
 @property (weak, nonatomic) IBOutlet UILabel *webSiteLbl;
 //餐廳簡介
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLbl;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionLbl;
 //Segmented選單
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectInformationMenu;
 

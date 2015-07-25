@@ -226,14 +226,12 @@
 
 //導航按鈕-->地址轉經緯度後，開始導航(結合—>轉經緯度+導航)
 -(void)buttonPressed{
-    NSLog(@"gggg");
-    
     //創造第1個MapItem—>導航用的專屬物件(屬於MapKit)-->出發地
-    MKPlacemark *sourcePlace = [[MKPlacemark alloc] initWithCoordinate:_locationManager.location.coordinate addressDictionary:nil];
+//    MKPlacemark *sourcePlace = [[MKPlacemark alloc] initWithCoordinate:_locationManager.location.coordinate addressDictionary:nil];
     //地圖導航用的物件-->出發地
-    MKMapItem *sourceMapItem = [[MKMapItem alloc] initWithPlacemark:sourcePlace];
+//    MKMapItem *sourceMapItem = [[MKMapItem alloc] initWithPlacemark:sourcePlace];
     
-    
+
     //創造第2個MapItem—>導航用的專屬物件(屬於MapKit)-->目的地
     CLLocationCoordinate2D targetCoordinate =CLLocationCoordinate2DMake([_restaurant.latitude doubleValue],
                                                                         [_restaurant.longitude doubleValue]);
