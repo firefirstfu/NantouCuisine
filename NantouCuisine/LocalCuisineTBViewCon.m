@@ -52,37 +52,12 @@
     
     
     
-    
+    //距離測試
     CLLocation *nowLocation = [[CLLocation alloc] initWithLatitude:24.964150 longitude:121.190966];
     CLLocation *purposeLocation = [[CLLocation alloc] initWithLatitude:23.74544 longitude:120.75464];
     CLLocationDistance newDistance = [nowLocation distanceFromLocation:purposeLocation];
     
-    
-    
     NSLog(@"%@",[NSString stringWithFormat:@"%0.2f km",(newDistance/1000)]);
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 //觀察者收聽完成
@@ -185,9 +160,9 @@
     //User的坐標
     CLLocation *userLocation=[[CLLocation alloc] initWithLatitude:userLatitude longitude:userLongitude];
     
-    // 計算距離
-    CLLocationDistance meters = [userLocation distanceFromLocation:restaurantLocation];
-    cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters/1000];
+//    // 計算距離-->目前的誤差很大約50公里???
+//    CLLocationDistance meters = [userLocation distanceFromLocation:restaurantLocation];
+//    cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters/1000];
     
 //    NSLog(@"res緯度: %f", restaurantLatitude);
 //    NSLog(@"res經度: %f", restaurantLongitude);
@@ -203,8 +178,6 @@
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     //取user位置的最新一筆Coordinate(座標)
     _currentLocationCoordinate = [locations.lastObject coordinate];
-    
-    
     
 }
 
