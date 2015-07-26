@@ -11,6 +11,9 @@
 //NetWorking Library
 #import "NetWorkingManamger.h"
 #import "UIImageView+AFNetworking.h"
+//顯示activity indicator
+#import "UIActivityIndicatorView+AFNetworking.h"
+
 
 
 @interface LocalCuisineTBViewCon ()<CLLocationManagerDelegate>
@@ -58,7 +61,7 @@
 //    CLLocation *purposeLocation = [[CLLocation alloc] initWithLatitude:21.9918877 longitude:120.74656970000001];
 //    CLLocationDistance distance = [_locationManager.location distanceFromLocation:purposeLocation];
 //    NSLog(@"%@",[NSString stringWithFormat:@"%0.2f km",(distance/1000)]);
-    
+
 }
 
 //觀察者收聽完成
@@ -108,6 +111,7 @@
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
                                             weakCell.storeImageView.image = image;
                                             [weakCell setNeedsLayout];
+                                            
                                         }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
                                             cell.storeImageView.image = [UIImage imageNamed:@"1.jpg"];
                                         }];

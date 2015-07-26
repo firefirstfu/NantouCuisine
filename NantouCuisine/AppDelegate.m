@@ -1,12 +1,9 @@
-//
-//  AppDelegate.m
-//  NantouCuisine
-//
-//  Created by OSX on 2015/7/11.
-//  Copyright (c) 2015年 OSX. All rights reserved.
-//
+
 
 #import "AppDelegate.h"
+
+//自動出現ActivityIndicator
+#import <AFNetworkActivityIndicatorManager.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +13,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //自動出現ActivityIndicator
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     return YES;
 }
 

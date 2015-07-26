@@ -5,19 +5,21 @@
 
 @interface collectCuisineTBController ()
 
-@end
-
-@interface collectCuisineTBController ()
+@property (nonatomic, strong) NSMutableArray *collections;
 
 @end
+
 
 @implementation collectCuisineTBController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
 }
+
+
+
+
 
 
 #pragma mark - Table view data source
@@ -35,7 +37,7 @@
     
     collectCuisineTBViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     //餐廳區域
-    cell.nantouStateLbl.text = @"埔里鎮";
+    cell.nantouStateLbl.text = @"埔里";
     //餐廳名稱
     cell.restaurantNameLbl.text = @"有田日本料理";
     //餐廳距離

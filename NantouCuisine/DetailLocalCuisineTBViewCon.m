@@ -16,6 +16,8 @@
 @property (nonatomic, strong) DetailLocalCuisineTBViewCell *cell;
 @property (nonatomic, assign) CGFloat imageHeight;
 
+@property (nonatomic, strong) NSMutableArray *collections;
+
 @end
 
 
