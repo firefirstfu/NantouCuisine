@@ -55,12 +55,17 @@
     [_locationManager startUpdatingLocation];
     
     
-//    //算出來的距離和AppleMap有很大的差距
-//    //集集明新書院  23.827478,120.79964080000002
-//    //距離測試-->以實際的經緯度測量，仍然是錯誤的，為何?
-//    CLLocation *purposeLocation = [[CLLocation alloc] initWithLatitude:21.9918877 longitude:120.74656970000001];
-//    CLLocationDistance distance = [_locationManager.location distanceFromLocation:purposeLocation];
-//    NSLog(@"%@",[NSString stringWithFormat:@"%0.2f km",(distance/1000)]);
+    
+    
+    
+    //算出來的距離和AppleMap有很大的差距
+    //集集明新書院  23.827478,120.79964080000002
+    //距離測試-->以實際的經緯度測量，仍然是錯誤的，為何?
+    CLLocation *purposeLocation = [[CLLocation alloc] initWithLatitude:23.97245 longitude:120.96739];
+    CLLocationDistance distance = [_locationManager.location distanceFromLocation:purposeLocation];
+    NSLog(@"目前位置緯度/經度: %.8f, %.8f", _locationManager.location.coordinate.latitude, _locationManager.location.coordinate.longitude);
+        NSLog(@"%@",[NSString stringWithFormat:@"%0.2f km",(distance/1000)]);
+    
 
 }
 
