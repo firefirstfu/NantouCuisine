@@ -23,19 +23,11 @@ static DataSource *_MySingleTon = nil;
     return _MySingleTon;
 }
 
-//getter->惰性初始化
--(NSMutableArray*) nantouOpenDataArray{
-    if (!_nantouOpenDataArray) {
-        _nantouOpenDataArray = [[NSMutableArray alloc] init];
-    }
-    return _nantouOpenDataArray;
-}
 
-
-//取得南投縣府的open data
--(void)getNantouOpendata{
+//取得open data
+-(void)getNantouOpendata:(void(^)(BOOL completion))completion{
     _communicator = [[CommunicatorNewWork alloc] init];
-    [_communicator downloadDataWithCompletion:^(NSError *error, id result) {
+    [_communicator fetchDataFromServer:^(NSError *error, id result) {
         if (error) {
             NSLog(@"Fail");
         }else{
@@ -43,9 +35,11 @@ static DataSource *_MySingleTon = nil;
             NSDictionary *tempDictionary = [XMLReader dictionaryForXMLData:result error:&parseError];
             self.nantouOpenDataArray = tempDictionary[@"XML_Head"][@"Infos"][@"Info"];
             [self getAllRestaurants];
+            completion(YES);
         }
     }];
 }
+
 
 -(void)getAllRestaurants{
     RestaurantCollection *restaurants = [[RestaurantCollection alloc] init];

@@ -8,7 +8,6 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "UIImageView+AFNetworking.h"
-//顯示activity indicator
 #import "UIActivityIndicatorView+AFNetworking.h"
 #import "DataSource.h"
 
@@ -27,12 +26,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //觀察者模式-->收聽
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(completion:)
-//                                                 name:DATAS_UPDATED_NOTIFICATION object:nil];
-    
     _nantouData = [DataSource shared];
-    [_nantouData getNantouOpendata];
+    [_nantouData getNantouOpendata:^(BOOL completion) {
+        if (completion) {
+            [self.tableView reloadData];
+        }
+    }];
+    
     
     //初始化地理位置管理員
     _locationManager = [[CLLocationManager alloc] init];
@@ -48,11 +48,6 @@
     //開始計算所在位地置的功能
     [_locationManager startUpdatingLocation];
 }
-
-////觀察者收聽完成
-//-(void) completion:(NSNotification*)notification{
-//    [self.tableView reloadData];
-//}
 
 
 #pragma mark - Table view data source
@@ -168,7 +163,6 @@
 }
 
 - (IBAction)refresh:(id)sender {
-//    [_nantouData getNantouOpendata];
     [self.tableView reloadData];
 }
 

@@ -12,7 +12,6 @@
 		102645991B5CE48600D91102 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72341B5A0F0000F624BD /* CoreLocation.framework */; };
 		1026459A1B5CE48B00D91102 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72321B5A0EF600F624BD /* MapKit.framework */; };
 		104C9AB41B5FE5C000790BDB /* CommunicatorNewWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */; };
-		105318E41B5E7BA8006708E5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E31B5E7BA8006708E5 /* MapViewController.m */; };
 		105318E71B5E7F6C006708E5 /* collectCuisineTBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E61B5E7F6C006708E5 /* collectCuisineTBController.m */; };
 		105318EA1B5E800A006708E5 /* collectCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E91B5E800A006708E5 /* collectCuisineTBViewCell.m */; };
 		105318ED1B5F1C30006708E5 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318EC1B5F1C30006708E5 /* Restaurant.m */; };
@@ -23,8 +22,6 @@
 		105D723B1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723A1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m */; };
 		105D723E1B5A155E00F624BD /* LocalCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723D1B5A155E00F624BD /* LocalCuisineTBViewCell.m */; };
 		105D72411B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D72401B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m */; };
-		105D72681B5BEE9800F624BD /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 105D72661B5BEE9800F624BD /* 7.jpg */; };
-		105D72691B5BEE9800F624BD /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 105D72671B5BEE9800F624BD /* 6.jpg */; };
 		105D726C1B5C05BB00F624BD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D726B1B5C05BB00F624BD /* WebViewController.m */; };
 		1097C75E1B506A0C0071E943 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C75D1B506A0C0071E943 /* main.m */; };
 		1097C7611B506A0C0071E943 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C7601B506A0C0071E943 /* AppDelegate.m */; };
@@ -53,8 +50,6 @@
 		102645581B5CBB8F00D91102 /* DetailMapTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMapTBViewCell.m; sourceTree = "<group>"; };
 		104C9AB21B5FE5C000790BDB /* CommunicatorNewWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicatorNewWork.h; sourceTree = "<group>"; };
 		104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicatorNewWork.m; sourceTree = "<group>"; };
-		105318E21B5E7BA8006708E5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		105318E31B5E7BA8006708E5 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		105318E51B5E7F6C006708E5 /* collectCuisineTBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCuisineTBController.h; sourceTree = "<group>"; };
 		105318E61B5E7F6C006708E5 /* collectCuisineTBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectCuisineTBController.m; sourceTree = "<group>"; };
 		105318E81B5E800A006708E5 /* collectCuisineTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCuisineTBViewCell.h; sourceTree = "<group>"; };
@@ -76,8 +71,6 @@
 		105D723D1B5A155E00F624BD /* LocalCuisineTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalCuisineTBViewCell.m; sourceTree = "<group>"; };
 		105D723F1B5A15A300F624BD /* DetailLocalCuisineTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLocalCuisineTBViewCell.h; sourceTree = "<group>"; };
 		105D72401B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLocalCuisineTBViewCell.m; sourceTree = "<group>"; };
-		105D72661B5BEE9800F624BD /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
-		105D72671B5BEE9800F624BD /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
 		105D726A1B5C05BB00F624BD /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		105D726B1B5C05BB00F624BD /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		1097C7581B506A0C0071E943 /* NantouCuisine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NantouCuisine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,14 +159,12 @@
 			isa = PBXGroup;
 			children = (
 				1097C7651B506A0C0071E943 /* Main.storyboard */,
-				105775431B617046005374C7 /* 1.jpg */,
-				105D72671B5BEE9800F624BD /* 6.jpg */,
-				105D72661B5BEE9800F624BD /* 7.jpg */,
+				10560CF81B7E5C8300F58B80 /* Images */,
 			);
 			name = View;
 			sourceTree = "<group>";
 		};
-		104C9AB51B5FE5C900790BDB /* DataSource */ = {
+		10560CF71B7E52F700F58B80 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				104C9AB21B5FE5C000790BDB /* CommunicatorNewWork.h */,
@@ -181,18 +172,15 @@
 				1057EEC61B7CFF6D004FA351 /* DataSource.h */,
 				1057EEC71B7CFF6D004FA351 /* DataSource.m */,
 			);
-			name = DataSource;
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
-		10560CF41B7DBA4300F58B80 /* Model Class */ = {
+		10560CF81B7E5C8300F58B80 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				105318EB1B5F1C30006708E5 /* Restaurant.h */,
-				105318EC1B5F1C30006708E5 /* Restaurant.m */,
-				105318EE1B5F1EB0006708E5 /* RestaurantCollection.h */,
-				105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */,
+				105775431B617046005374C7 /* 1.jpg */,
 			);
-			name = "Model Class";
+			name = Images;
 			sourceTree = "<group>";
 		};
 		105D722F1B59E2F300F624BD /* LocalCuisine */ = {
@@ -208,8 +196,6 @@
 		105D72301B59E31900F624BD /* CuisineMap */ = {
 			isa = PBXGroup;
 			children = (
-				105318E21B5E7BA8006708E5 /* MapViewController.h */,
-				105318E31B5E7BA8006708E5 /* MapViewController.m */,
 			);
 			name = CuisineMap;
 			sourceTree = "<group>";
@@ -251,6 +237,7 @@
 				102645A61B5D34ED00D91102 /* View */,
 				1097C78A1B506C760071E943 /* Controller */,
 				1097C78B1B506C8C0071E943 /* Model */,
+				10560CF71B7E52F700F58B80 /* ViewModel */,
 				1097C75B1B506A0C0071E943 /* Supporting Files */,
 			);
 			path = NantouCuisine;
@@ -301,8 +288,10 @@
 		1097C78B1B506C8C0071E943 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				104C9AB51B5FE5C900790BDB /* DataSource */,
-				10560CF41B7DBA4300F58B80 /* Model Class */,
+				105318EB1B5F1C30006708E5 /* Restaurant.h */,
+				105318EC1B5F1C30006708E5 /* Restaurant.m */,
+				105318EE1B5F1EB0006708E5 /* RestaurantCollection.h */,
+				105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -412,8 +401,6 @@
 				1097C76C1B506A0C0071E943 /* LaunchScreen.xib in Resources */,
 				1097C7691B506A0C0071E943 /* Images.xcassets in Resources */,
 				105775441B617046005374C7 /* 1.jpg in Resources */,
-				105D72681B5BEE9800F624BD /* 7.jpg in Resources */,
-				105D72691B5BEE9800F624BD /* 6.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,7 +466,6 @@
 				105318F01B5F1EB0006708E5 /* RestaurantCollection.m in Sources */,
 				102645561B5CB92500D91102 /* MapTBViewCon.m in Sources */,
 				1097C75E1B506A0C0071E943 /* main.m in Sources */,
-				105318E41B5E7BA8006708E5 /* MapViewController.m in Sources */,
 				104C9AB41B5FE5C000790BDB /* CommunicatorNewWork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

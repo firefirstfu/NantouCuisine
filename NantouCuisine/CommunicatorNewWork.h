@@ -8,7 +8,7 @@
 @interface CommunicatorNewWork : NSObject
 
 //撈資料
--(void) downloadDataWithCompletion: (void(^)(NSError *error, id result))completion;
+-(void) fetchDataFromServer: (void(^)(NSError *error, id result))completion;
 
 @end
 

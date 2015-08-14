@@ -7,7 +7,7 @@
 //SingleTon初始化
 +(instancetype)shared;
 
--(void)getNantouOpendata;
+-(void)getNantouOpendata:(void(^)(BOOL completion))completion;
 
 @property(nonatomic, strong) NSMutableArray *allRestaruants;
 

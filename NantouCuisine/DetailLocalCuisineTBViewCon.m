@@ -24,19 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //自適化TableViewCell高度
     self.tableView.estimatedRowHeight = 44.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
-
-
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 7;
 }
@@ -70,10 +66,8 @@
         }
     }
     //餐廳簡述
-    //不可編輯
     _cell.descriptionLbl.editable = NO;
     _cell.descriptionLbl.text  = [_restaurant.introduction stringByReplacingOccurrencesOfString:@"" withString:@""];
-    
     
     //餐廳照片
     _cell.storeImageView.contentMode = UIViewContentModeScaleToFill;
