@@ -1,6 +1,7 @@
 
 #import "collectCuisineTBController.h"
 #import "collectCuisineTBViewCell.h"
+#import "DataSource.h"
 
 
 @interface collectCuisineTBController ()
@@ -15,8 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
 
+}
 
 
 

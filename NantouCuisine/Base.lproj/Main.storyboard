@@ -125,7 +125,13 @@
                             <outlet property="delegate" destination="qjh-RR-ZKh" id="RmM-SL-kZy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="在地美食" id="EbK-9c-WOG"/>
+                    <navigationItem key="navigationItem" title="在地美食" id="EbK-9c-WOG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ooJ-98-3rx">
+                            <connections>
+                                <action selector="refresh:" destination="qjh-RR-ZKh" id="Wgh-gP-Zxn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyr-BC-o4N" userLabel="First Responder" sceneMemberID="firstResponder"/>

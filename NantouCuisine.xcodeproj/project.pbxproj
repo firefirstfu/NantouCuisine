@@ -11,13 +11,14 @@
 		102645591B5CBB8F00D91102 /* DetailMapTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 102645581B5CBB8F00D91102 /* DetailMapTBViewCell.m */; };
 		102645991B5CE48600D91102 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72341B5A0F0000F624BD /* CoreLocation.framework */; };
 		1026459A1B5CE48B00D91102 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72321B5A0EF600F624BD /* MapKit.framework */; };
-		104C9AB41B5FE5C000790BDB /* NetWorkingManamger.m in Sources */ = {isa = PBXBuildFile; fileRef = 104C9AB31B5FE5C000790BDB /* NetWorkingManamger.m */; };
+		104C9AB41B5FE5C000790BDB /* CommunicatorNewWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */; };
 		105318E41B5E7BA8006708E5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E31B5E7BA8006708E5 /* MapViewController.m */; };
 		105318E71B5E7F6C006708E5 /* collectCuisineTBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E61B5E7F6C006708E5 /* collectCuisineTBController.m */; };
 		105318EA1B5E800A006708E5 /* collectCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E91B5E800A006708E5 /* collectCuisineTBViewCell.m */; };
 		105318ED1B5F1C30006708E5 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318EC1B5F1C30006708E5 /* Restaurant.m */; };
 		105318F01B5F1EB0006708E5 /* RestaurantCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */; };
 		105775441B617046005374C7 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 105775431B617046005374C7 /* 1.jpg */; };
+		1057EEC81B7CFF6D004FA351 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1057EEC71B7CFF6D004FA351 /* DataSource.m */; };
 		105D72381B5A14C500F624BD /* LocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D72371B5A14C500F624BD /* LocalCuisineTBViewCon.m */; };
 		105D723B1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723A1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m */; };
 		105D723E1B5A155E00F624BD /* LocalCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723D1B5A155E00F624BD /* LocalCuisineTBViewCell.m */; };
@@ -50,8 +51,8 @@
 		102645551B5CB92500D91102 /* MapTBViewCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTBViewCon.m; sourceTree = "<group>"; };
 		102645571B5CBB8F00D91102 /* DetailMapTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMapTBViewCell.h; sourceTree = "<group>"; };
 		102645581B5CBB8F00D91102 /* DetailMapTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMapTBViewCell.m; sourceTree = "<group>"; };
-		104C9AB21B5FE5C000790BDB /* NetWorkingManamger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkingManamger.h; sourceTree = "<group>"; };
-		104C9AB31B5FE5C000790BDB /* NetWorkingManamger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkingManamger.m; sourceTree = "<group>"; };
+		104C9AB21B5FE5C000790BDB /* CommunicatorNewWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicatorNewWork.h; sourceTree = "<group>"; };
+		104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicatorNewWork.m; sourceTree = "<group>"; };
 		105318E21B5E7BA8006708E5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		105318E31B5E7BA8006708E5 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		105318E51B5E7F6C006708E5 /* collectCuisineTBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCuisineTBController.h; sourceTree = "<group>"; };
@@ -63,6 +64,8 @@
 		105318EE1B5F1EB0006708E5 /* RestaurantCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantCollection.h; sourceTree = "<group>"; };
 		105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantCollection.m; sourceTree = "<group>"; };
 		105775431B617046005374C7 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		1057EEC61B7CFF6D004FA351 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		1057EEC71B7CFF6D004FA351 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		105D72321B5A0EF600F624BD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		105D72341B5A0F0000F624BD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		105D72361B5A14C500F624BD /* LocalCuisineTBViewCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalCuisineTBViewCon.h; sourceTree = "<group>"; };
@@ -170,13 +173,26 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		104C9AB51B5FE5C900790BDB /* NetWorking */ = {
+		104C9AB51B5FE5C900790BDB /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				104C9AB21B5FE5C000790BDB /* NetWorkingManamger.h */,
-				104C9AB31B5FE5C000790BDB /* NetWorkingManamger.m */,
+				104C9AB21B5FE5C000790BDB /* CommunicatorNewWork.h */,
+				104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */,
+				1057EEC61B7CFF6D004FA351 /* DataSource.h */,
+				1057EEC71B7CFF6D004FA351 /* DataSource.m */,
 			);
-			name = NetWorking;
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		10560CF41B7DBA4300F58B80 /* Model Class */ = {
+			isa = PBXGroup;
+			children = (
+				105318EB1B5F1C30006708E5 /* Restaurant.h */,
+				105318EC1B5F1C30006708E5 /* Restaurant.m */,
+				105318EE1B5F1EB0006708E5 /* RestaurantCollection.h */,
+				105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */,
+			);
+			name = "Model Class";
 			sourceTree = "<group>";
 		};
 		105D722F1B59E2F300F624BD /* LocalCuisine */ = {
@@ -285,11 +301,8 @@
 		1097C78B1B506C8C0071E943 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				105318EB1B5F1C30006708E5 /* Restaurant.h */,
-				105318EC1B5F1C30006708E5 /* Restaurant.m */,
-				105318EE1B5F1EB0006708E5 /* RestaurantCollection.h */,
-				105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */,
-				104C9AB51B5FE5C900790BDB /* NetWorking */,
+				104C9AB51B5FE5C900790BDB /* DataSource */,
+				10560CF41B7DBA4300F58B80 /* Model Class */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -458,6 +471,7 @@
 				105318EA1B5E800A006708E5 /* collectCuisineTBViewCell.m in Sources */,
 				102645591B5CBB8F00D91102 /* DetailMapTBViewCell.m in Sources */,
 				1097C7641B506A0C0071E943 /* ViewController.m in Sources */,
+				1057EEC81B7CFF6D004FA351 /* DataSource.m in Sources */,
 				1097C7611B506A0C0071E943 /* AppDelegate.m in Sources */,
 				105318ED1B5F1C30006708E5 /* Restaurant.m in Sources */,
 				105318E71B5E7F6C006708E5 /* collectCuisineTBController.m in Sources */,
@@ -466,7 +480,7 @@
 				102645561B5CB92500D91102 /* MapTBViewCon.m in Sources */,
 				1097C75E1B506A0C0071E943 /* main.m in Sources */,
 				105318E41B5E7BA8006708E5 /* MapViewController.m in Sources */,
-				104C9AB41B5FE5C000790BDB /* NetWorkingManamger.m in Sources */,
+				104C9AB41B5FE5C000790BDB /* CommunicatorNewWork.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

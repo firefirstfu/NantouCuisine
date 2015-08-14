@@ -3,8 +3,7 @@
 #import "DetailLocalCuisineTBViewCell.h"
 #import "WebViewController.h"
 
-
-#import "NetWorkingManamger.h"
+#import "CommunicatorNewWork.h"
 #import <UIImageView+AFNetworking.h>
 
 #import "Restaurant.h"
@@ -127,22 +126,4 @@
     }
 }
 
-
-
-////自訂TableViewCell高度
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//   
-//    if (indexPath.row == 0) {
-//        if (_imageHeight <= 10) {
-//             _imageHeight = _cell.storeImageView.frame.size.height - 1.0;
-//        }
-//        return _imageHeight;
-//    }else if (indexPath.row == 1){
-//        return 35.0f;
-//    }else if (indexPath.row == 6){
-//        return 200.0f;
-//    }else{
-//        return 50.0f;
-//    }
-//}
 @end
