@@ -2,31 +2,25 @@
 #import "MapTBViewCon.h"
 #import "DetailMapTBViewCell.h"
 #import "DetailLocalCuisineTBViewCon.h"
-#import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import "CommunicatorNewWork.h"
 #import "DataSource.h"
+#import "LocationManager.h"
 
-@interface MapTBViewCon ()<MKMapViewDelegate, CLLocationManagerDelegate>
+@interface MapTBViewCon ()<MKMapViewDelegate>
 
-//宣告地理位置管理員
-@property(nonatomic, strong) CLLocationManager *locationManager;
-//地理位置用
-@property(nonatomic, assign) BOOL isFirstLocationReceived;
-//座標轉地址編碼時用
-@property(nonatomic, strong) CLLocation *restaurantLocation;
-//tableViewcell
 @property(nonatomic, strong) DetailMapTBViewCell *cell;
 //tableViewCell高度
 @property(nonatomic, assign) CGFloat imageHeight;
 @property(nonatomic, strong) DataSource *nantouData;
 @property(nonatomic, strong) Restaurant *tmpRestaurant;
 @property (weak, nonatomic) IBOutlet UISwitch *choiceMyLove;
+@property(nonatomic, strong) LocationManager *locationManager;
+@property(nonatomic, strong) CLLocation *MyRestaurantLocation;
+@property(nonatomic) BOOL isFirstLocationReceived;
 
 
 @end
-
-
 
 @implementation MapTBViewCon
 
@@ -37,44 +31,31 @@
     _tmpRestaurant = [[Restaurant alloc] init];
     _tmpRestaurant = _nantouData.allRestaruants[_restaurantNumber];
     
-    //初始化地理位置管理員
-    _locationManager = [[CLLocationManager alloc] init];
-    //設定委託給viewController
-    _locationManager.delegate = self;
-    //判別是否有支援這個方法-->才用的手法-->因為此方法在ios8以後才支援
-    if ([_locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-        //此方法在ios8以後才支援
-        [_locationManager requestAlwaysAuthorization];
-    }
-    //開始計算所在位地置的功能
-    [_locationManager startUpdatingLocation];
-    
-    
-    //創造地理位置編碼員
-    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    //位置管理員
+    _locationManager = [[LocationManager alloc] init];
     //餐廳經緯度轉CLLocation
-    _restaurantLocation = [[CLLocation alloc] initWithLatitude:[_tmpRestaurant.latitude doubleValue]
+    _MyRestaurantLocation = [[CLLocation alloc] initWithLatitude:[_tmpRestaurant.latitude doubleValue]
                                                      longitude:[_tmpRestaurant.longitude doubleValue]];
-    //經緯度轉地址
-    [geoCoder reverseGeocodeLocation:_restaurantLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-        //創造大頭針物件
-        MKPointAnnotation *myPoint = [[MKPointAnnotation alloc] init];
-        //附加緯經度給-->大頭針座標
-        myPoint.coordinate = _restaurantLocation.coordinate;
-        //地區取區域別
-        CLPlacemark *placemark = placemarks[0];
-        myPoint.title = placemark.locality;
-        //餐廳所在區域別
-        myPoint.subtitle = _tmpRestaurant.name;
-        //地圖附加大頭針
-        [_cell.restaurantMapView addAnnotation:myPoint];
+    //計算區域
+    [_locationManager LocationZipCodeWithLatitude:_MyRestaurantLocation.coordinate.latitude
+                                    withLongitude:_MyRestaurantLocation.coordinate.longitude withCompletion:^(CLPlacemark *placemark) {
+                                        //創造大頭針物件
+                                        MKPointAnnotation *myPoint = [[MKPointAnnotation alloc] init];
+                                        //附加緯經度給-->大頭針座標
+                                        myPoint.coordinate = _MyRestaurantLocation.coordinate;
+                                        //地區取區域別
+                                        myPoint.title = placemark.locality;
+                                        NSLog(@"fuck");
+                                        //餐廳所在區域別
+                                        myPoint.subtitle = _tmpRestaurant.name;
+                                        //地圖附加大頭針
+                                        [_cell.restaurantMapView addAnnotation:myPoint];
     }];
 }
 
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _tmpRestaurant = [[Restaurant alloc] init];
-    _tmpRestaurant = _nantouData.allRestaruants[_restaurantNumber];
     if (_tmpRestaurant.collected == YES) {
         [_choiceMyLove setOn:YES];
     }else{
@@ -87,7 +68,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
 }
@@ -104,7 +84,7 @@
                withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
                    _cell.storeImageView.image = returnImage;
                }];
-
+    
     //segmented選單增加Method
     [_cell.selectInformationMenu addTarget:self action:@selector(segmentedAction:) forControlEvents:UIControlEventValueChanged];
     //segmented預設值index設為地圖
@@ -184,23 +164,23 @@
                    customPin.leftCalloutAccessoryView = theImageView;
                }];
     
+    
     //導航功能加入
     //客制化大頭針-Add Right Callout Accessory View
     //UIButtonTypeDetailDisclosure-->就是旁邊的驚嘆號
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     //用程式碼去實現Button的監聽
     //forControlEvents-->參數是事件的種類
-    //@selector-->把方法的名稱包裝成一個物件
     [rightButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     customPin.rightCalloutAccessoryView = rightButton;
 
-    //地圖移動到指定位置-->沒有開啟追蹤時用
+//    //地圖移動到指定位置-->沒有開啟追蹤時用
     if (_isFirstLocationReceived ==false) {
         //不用加星號，因為本質是c語言的strct。只一個資料儲存的東西(不是物件)
         //把資料讀出來
         //coordinate-->座標
         MKCoordinateRegion region = _cell.restaurantMapView.region;
-        region.center = _restaurantLocation.coordinate;
+        region.center = _MyRestaurantLocation.coordinate;
         //控制地圖的縮放-->無段式縮放 -->1度約1公里
         region.span.latitudeDelta = 0.03;
         //控制地圖的縮放-->無段式縮放
@@ -209,6 +189,7 @@
         [_cell.restaurantMapView setRegion:region animated:NO];
         _isFirstLocationReceived = YES;
     }
+   
     return customPin;
 }
 
@@ -227,7 +208,6 @@
     //地圖導航用的物件-->出發地
 //    MKMapItem *sourceMapItem = [[MKMapItem alloc] initWithPlacemark:sourcePlace];
     
-
     //創造第2個MapItem—>導航用的專屬物件(屬於MapKit)-->目的地
     CLLocationCoordinate2D targetCoordinate =CLLocationCoordinate2DMake([_tmpRestaurant.latitude doubleValue],
                                                                         [_tmpRestaurant.longitude doubleValue]);
@@ -241,11 +221,8 @@
     NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving};
     //原地和指定地點的導航(單一指定位置)
     [targetMapItem openInMapsWithLaunchOptions:options];
-    
-    //現在位置導航到目的地
-//    [MKMapItem openMapsWithItems:@[sourceMapItem, targetMapItem] launchOptions:options];
-
 }
+
 - (IBAction)choiceMyLoveButton:(id)sender {
     _tmpRestaurant = _nantouData.allRestaruants[_restaurantNumber];
     if (_choiceMyLove.isOn == YES) {

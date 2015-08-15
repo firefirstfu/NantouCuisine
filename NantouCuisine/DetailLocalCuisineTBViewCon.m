@@ -4,8 +4,6 @@
 #import "WebViewController.h"
 #import <Social/Social.h>
 #import "CommunicatorNewWork.h"
-#import "Restaurant.h"
-#import "RestaurantCollection.h"
 #import "MapTBViewCon.h"
 #import "DataSource.h"
 
@@ -63,7 +61,7 @@
     _cell.phoneNumberLbl.font = [UIFont boldSystemFontOfSize:17.0f];
     _cell.webSiteLbl.font = [UIFont boldSystemFontOfSize:17.0f];
     _cell.descriptionLbl.font = [UIFont boldSystemFontOfSize:17.0f];
-
+    
     //餐廳名稱
     _cell.restaurantNameLbl.text = [_nantouData.allRestaruants[_restaurantNumber] name];
     //餐廳地址

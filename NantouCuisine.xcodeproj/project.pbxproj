@@ -32,6 +32,7 @@
 		1097C7781B506A0C0071E943 /* NantouCuisineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C7771B506A0C0071E943 /* NantouCuisineTests.m */; };
 		10A496921B7F9D3D003A62EA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496911B7F9D3D003A62EA /* Reachability.m */; };
 		10A496941B7FA122003A62EA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A496931B7FA122003A62EA /* Social.framework */; };
+		10A4969A1B7FDE3A003A62EA /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496991B7FDE3A003A62EA /* LocationManager.m */; };
 		D9BC64A2AB7C758B14E90C91 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DDE342E5004CC7203E0937 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,8 @@
 		10A496901B7F9D3D003A62EA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		10A496911B7F9D3D003A62EA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		10A496931B7FA122003A62EA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		10A496981B7FDE3A003A62EA /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		10A496991B7FDE3A003A62EA /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		13DDE342E5004CC7203E0937 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		597425E607D85298C8BA0A06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CDCF2DC7843D8BCC77752C14 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -296,7 +299,7 @@
 		10A496951B7FC78F003A62EA /* MyAPI */ = {
 			isa = PBXGroup;
 			children = (
-				10A496971B7FC7C0003A62EA /* Loaction */,
+				10A496971B7FC7C0003A62EA /* MapAndLoaction */,
 				10A496961B7FC7AE003A62EA /* NewWork */,
 				104C9AB21B5FE5C000790BDB /* CommunicatorNewWork.h */,
 				104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */,
@@ -313,11 +316,13 @@
 			name = NewWork;
 			sourceTree = "<group>";
 		};
-		10A496971B7FC7C0003A62EA /* Loaction */ = {
+		10A496971B7FC7C0003A62EA /* MapAndLoaction */ = {
 			isa = PBXGroup;
 			children = (
+				10A496981B7FDE3A003A62EA /* LocationManager.h */,
+				10A496991B7FDE3A003A62EA /* LocationManager.m */,
 			);
-			name = Loaction;
+			name = MapAndLoaction;
 			sourceTree = "<group>";
 		};
 		14593FE0BF9C6AD1FFC1FAF2 /* Pods */ = {
@@ -487,6 +492,7 @@
 				1097C7611B506A0C0071E943 /* AppDelegate.m in Sources */,
 				105318ED1B5F1C30006708E5 /* Restaurant.m in Sources */,
 				105318E71B5E7F6C006708E5 /* collectCuisineTBController.m in Sources */,
+				10A4969A1B7FDE3A003A62EA /* LocationManager.m in Sources */,
 				105D72381B5A14C500F624BD /* LocalCuisineTBViewCon.m in Sources */,
 				105318F01B5F1EB0006708E5 /* RestaurantCollection.m in Sources */,
 				102645561B5CB92500D91102 /* MapTBViewCon.m in Sources */,
