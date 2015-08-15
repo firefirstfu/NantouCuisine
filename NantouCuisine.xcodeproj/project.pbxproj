@@ -30,7 +30,8 @@
 		1097C7691B506A0C0071E943 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1097C7681B506A0C0071E943 /* Images.xcassets */; };
 		1097C76C1B506A0C0071E943 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1097C76A1B506A0C0071E943 /* LaunchScreen.xib */; };
 		1097C7781B506A0C0071E943 /* NantouCuisineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C7771B506A0C0071E943 /* NantouCuisineTests.m */; };
-		10A4968F1B7F7D8C003A62EA /* MyImageViewWithInternet.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A4968E1B7F7D8C003A62EA /* MyImageViewWithInternet.m */; };
+		10A496921B7F9D3D003A62EA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496911B7F9D3D003A62EA /* Reachability.m */; };
+		10A496941B7FA122003A62EA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A496931B7FA122003A62EA /* Social.framework */; };
 		D9BC64A2AB7C758B14E90C91 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DDE342E5004CC7203E0937 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -87,8 +88,9 @@
 		1097C7711B506A0C0071E943 /* NantouCuisineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NantouCuisineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1097C7761B506A0C0071E943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1097C7771B506A0C0071E943 /* NantouCuisineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NantouCuisineTests.m; sourceTree = "<group>"; };
-		10A4968D1B7F7D8C003A62EA /* MyImageViewWithInternet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyImageViewWithInternet.h; sourceTree = "<group>"; };
-		10A4968E1B7F7D8C003A62EA /* MyImageViewWithInternet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyImageViewWithInternet.m; sourceTree = "<group>"; };
+		10A496901B7F9D3D003A62EA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		10A496911B7F9D3D003A62EA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		10A496931B7FA122003A62EA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		13DDE342E5004CC7203E0937 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		597425E607D85298C8BA0A06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CDCF2DC7843D8BCC77752C14 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10A496941B7FA122003A62EA /* Social.framework in Frameworks */,
 				1026459A1B5CE48B00D91102 /* MapKit.framework in Frameworks */,
 				102645991B5CE48600D91102 /* CoreLocation.framework in Frameworks */,
 				D9BC64A2AB7C758B14E90C91 /* libPods.a in Frameworks */,
@@ -170,8 +173,6 @@
 		10560CF71B7E52F700F58B80 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				104C9AB21B5FE5C000790BDB /* CommunicatorNewWork.h */,
-				104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */,
 				1057EEC61B7CFF6D004FA351 /* DataSource.h */,
 				1057EEC71B7CFF6D004FA351 /* DataSource.m */,
 			);
@@ -194,13 +195,6 @@
 				102645A11B5D058500D91102 /* Web_Info */,
 			);
 			name = LocalCuisine;
-			sourceTree = "<group>";
-		};
-		105D72301B59E31900F624BD /* CuisineMap */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = CuisineMap;
 			sourceTree = "<group>";
 		};
 		105D72311B59E33E00F624BD /* CollectCuisine */ = {
@@ -237,12 +231,11 @@
 		1097C75A1B506A0C0071E943 /* NantouCuisine */ = {
 			isa = PBXGroup;
 			children = (
-				10A4968D1B7F7D8C003A62EA /* MyImageViewWithInternet.h */,
-				10A4968E1B7F7D8C003A62EA /* MyImageViewWithInternet.m */,
 				102645A61B5D34ED00D91102 /* View */,
 				1097C78A1B506C760071E943 /* Controller */,
 				1097C78B1B506C8C0071E943 /* Model */,
 				10560CF71B7E52F700F58B80 /* ViewModel */,
+				10A496951B7FC78F003A62EA /* MyAPI */,
 				1097C75B1B506A0C0071E943 /* Supporting Files */,
 			);
 			path = NantouCuisine;
@@ -284,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				105D722F1B59E2F300F624BD /* LocalCuisine */,
-				105D72301B59E31900F624BD /* CuisineMap */,
 				105D72311B59E33E00F624BD /* CollectCuisine */,
 			);
 			name = Controller;
@@ -301,6 +293,33 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		10A496951B7FC78F003A62EA /* MyAPI */ = {
+			isa = PBXGroup;
+			children = (
+				10A496971B7FC7C0003A62EA /* Loaction */,
+				10A496961B7FC7AE003A62EA /* NewWork */,
+				104C9AB21B5FE5C000790BDB /* CommunicatorNewWork.h */,
+				104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */,
+				10A496901B7F9D3D003A62EA /* Reachability.h */,
+				10A496911B7F9D3D003A62EA /* Reachability.m */,
+			);
+			name = MyAPI;
+			sourceTree = "<group>";
+		};
+		10A496961B7FC7AE003A62EA /* NewWork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NewWork;
+			sourceTree = "<group>";
+		};
+		10A496971B7FC7C0003A62EA /* Loaction */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Loaction;
+			sourceTree = "<group>";
+		};
 		14593FE0BF9C6AD1FFC1FAF2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +332,7 @@
 		8CEF20F6569391F0EB8B3A9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10A496931B7FA122003A62EA /* Social.framework */,
 				105D72341B5A0F0000F624BD /* CoreLocation.framework */,
 				105D72321B5A0EF600F624BD /* MapKit.framework */,
 				13DDE342E5004CC7203E0937 /* libPods.a */,
@@ -457,7 +477,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				105D723B1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m in Sources */,
-				10A4968F1B7F7D8C003A62EA /* MyImageViewWithInternet.m in Sources */,
 				105D72411B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m in Sources */,
 				105D723E1B5A155E00F624BD /* LocalCuisineTBViewCell.m in Sources */,
 				105D726C1B5C05BB00F624BD /* WebViewController.m in Sources */,
@@ -473,6 +492,7 @@
 				102645561B5CB92500D91102 /* MapTBViewCon.m in Sources */,
 				1097C75E1B506A0C0071E943 /* main.m in Sources */,
 				104C9AB41B5FE5C000790BDB /* CommunicatorNewWork.m in Sources */,
+				10A496921B7F9D3D003A62EA /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

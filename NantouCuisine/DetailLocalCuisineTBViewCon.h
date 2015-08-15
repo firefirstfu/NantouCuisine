@@ -1,10 +1,9 @@
 
 #import <UIKit/UIKit.h>
-#import "Restaurant.h"
 
 
 @interface DetailLocalCuisineTBViewCon : UITableViewController
 
-@property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic, assign) NSInteger restaurantNumber;
 
 @end

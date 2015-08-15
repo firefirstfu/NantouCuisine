@@ -77,12 +77,11 @@ withPlaceHolderImage:(UIImage*)placeHolderImage withCompletionImage:(void(^)(id 
     //實作AFNetworking遠端加載圖片Method
     [setImageView setImageWithURLRequest:request placeholderImage:placeHolderImage
                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-                                            NSLog(@"Success");
                                             //停止轉轉
                                             [indicatorView stopAnimating];
                                             completionImage(image);
                                         }failure:^(NSURLRequest *request,NSHTTPURLResponse *response,NSError *error){
-                                            NSLog(@"Failure");
+                                            NSLog(@"Fail: %@", error.description);
                                         }];
 }
 

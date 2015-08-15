@@ -2,20 +2,22 @@
 #import "DetailLocalCuisineTBViewCon.h"
 #import "DetailLocalCuisineTBViewCell.h"
 #import "WebViewController.h"
-
+#import <Social/Social.h>
 #import "CommunicatorNewWork.h"
-#import <UIImageView+AFNetworking.h>
-
 #import "Restaurant.h"
+#import "RestaurantCollection.h"
 #import "MapTBViewCon.h"
+#import "DataSource.h"
 
 
 @interface DetailLocalCuisineTBViewCon ()
 
 @property (nonatomic, strong) DetailLocalCuisineTBViewCell *cell;
 @property (nonatomic, assign) CGFloat imageHeight;
-
 @property (nonatomic, strong) NSMutableArray *collections;
+@property(nonatomic, strong) DataSource *nantouData;
+@property (weak, nonatomic) IBOutlet UISwitch *myLoveChoice;
+@property(nonatomic, strong) Restaurant *tmpRestaurant;
 
 @end
 
@@ -27,6 +29,19 @@
     //自適化TableViewCell高度
     self.tableView.estimatedRowHeight = 44.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //SingleTon物件
+    _nantouData = [DataSource shared];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _tmpRestaurant = [[Restaurant alloc] init];
+    _tmpRestaurant = _nantouData.allRestaruants[_restaurantNumber];
+    if (_tmpRestaurant.collected == YES) {
+        [_myLoveChoice setOn:YES];
+    }else{
+        [_myLoveChoice setOn:NO];
+    }
 }
 
 #pragma mark - Table view data source
@@ -49,40 +64,35 @@
     _cell.webSiteLbl.font = [UIFont boldSystemFontOfSize:17.0f];
     _cell.descriptionLbl.font = [UIFont boldSystemFontOfSize:17.0f];
 
-
     //餐廳名稱
-    _cell.restaurantNameLbl.text = _restaurant.name;
+    _cell.restaurantNameLbl.text = [_nantouData.allRestaruants[_restaurantNumber] name];
     //餐廳地址
-    _cell.addressLbl.text = _restaurant.address;
+    _cell.addressLbl.text = [_nantouData.allRestaruants[_restaurantNumber] address];
     //餐廳電話
-    _cell.phoneNumberLbl.text = _restaurant.phoneNumber;
+     _cell.phoneNumberLbl.text = [_nantouData.allRestaruants[_restaurantNumber] phoneNumber];
     //餐廳網址
-    _cell.webSiteLbl.text = _restaurant.webSite;
+    _cell.webSiteLbl.text = [_nantouData.allRestaruants[_restaurantNumber] webSite];
+
     //如果沒提供網址，則網址Row隱藏
     if ([_cell.webSiteLbl.text length] == 0) {
         _cell.webSiteLbl.text = @"未提供";
         if (indexPath.row == 5) {
-//            _cell.hidden = YES;
         }
     }
+    
     //餐廳簡述
     _cell.descriptionLbl.editable = NO;
-    _cell.descriptionLbl.text  = [_restaurant.introduction stringByReplacingOccurrencesOfString:@"" withString:@""];
+    _cell.descriptionLbl.text  = [[_nantouData.allRestaruants[_restaurantNumber] introduction] stringByReplacingOccurrencesOfString:@"" withString:@""];
     
     //餐廳照片
     _cell.storeImageView.contentMode = UIViewContentModeScaleToFill;
-    //圖片網址有中文的字串要先編碼為UTF-8的格式
-    NSString *urlStr = [_restaurant.imagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    __weak DetailLocalCuisineTBViewCell *weakCell = _cell;
-    [ _cell.storeImageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"1.jpg"]
-                                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-                                            weakCell.storeImageView.image = image;
-                                            [weakCell setNeedsLayout];
-                                        }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-                                            _cell.storeImageView.image = [UIImage imageNamed:@"1.jpg"];
-                                        }];
+    //非同步遠端下載image
+    NSString *urlStr = [_nantouData.allRestaruants[_restaurantNumber] imagePath];
+    [CommunicatorNewWork fetchImage:urlStr withSetImageView:_cell.storeImageView
+               withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
+                   _cell.storeImageView.image = returnImage;
+               }];
+    
     //segmented選單增加Method
     [_cell.selectInformationMenu addTarget:self action:@selector(segmentedAction:) forControlEvents:UIControlEventValueChanged];
     return _cell;
@@ -96,17 +106,33 @@
             [self gotAnother];
             break;
         case 2:
+            [self shareMyLove];
             break;
         default:
             break;
     }
 }
 
+//分享到Facebook
+-(void) shareMyLove{
+    //好像一次只能跳出一個分享-->這裡是Facebook
+//    SLComposeViewController *socialControl = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+//    // add initial text
+////    [socialControl setInitialText:[_nantouData.allRestaruants[_restaurantNumber] name]];
+//    // add an image
+////    [socialControl addImage:[UIImage imageNamed:@"98.jpg"]];
+//    // add a URL
+////    [socialControl addURL:[NSURL URLWithString:[_nantouData.allRestaruants[_restaurantNumber] webSite]]];
+//    // present controller
+//    [self presentViewController:socialControl animated:YES completion:nil];
+}
+
+
 //StoryBoard跳轉
 -(void)gotAnother{
     //沒有segue方式的傳值
     MapTBViewCon *viewCtrl2 = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_2"];
-    viewCtrl2.restaurant = _restaurant;
+    viewCtrl2.restaurantNumber = _restaurantNumber;
     [self.navigationController pushViewController:viewCtrl2 animated:NO];
 }
 
@@ -116,8 +142,18 @@
     if ([segue.identifier isEqualToString:@"gotToWeb"]) {
         WebViewController *targeView = segue.destinationViewController;
         //餐廳網址
-        targeView.webURL = _restaurant.webSite;
+        targeView.webURL = [_nantouData.allRestaruants[_restaurantNumber] webSite];
     }
 }
+
+- (IBAction)choiceMyLoveButton:(id)sender {
+    _tmpRestaurant = _nantouData.allRestaruants[_restaurantNumber];
+    if (_myLoveChoice.isOn == YES) {
+        _tmpRestaurant.collected = YES;
+    }else{
+        _tmpRestaurant.collected = NO;
+    }
+}
+
 
 @end

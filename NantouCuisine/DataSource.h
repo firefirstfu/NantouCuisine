@@ -7,8 +7,11 @@
 //SingleTon初始化
 +(instancetype)shared;
 
--(void)getNantouOpendata:(void(^)(BOOL completion))completion;
+-(void)getNantouRestaurants:(void(^)(BOOL completion))completion;
+-(void) getALllMyLoveRestaurants:(void(^)(BOOL completion))completion;
+
 
 @property(nonatomic, strong) NSMutableArray *allRestaruants;
+@property(nonatomic, strong) NSMutableArray *myLoveAllRestaurants;
 
 @end

@@ -25,7 +25,7 @@ static DataSource *_MySingleTon = nil;
 
 
 //取得open data
--(void)getNantouOpendata:(void(^)(BOOL completion))completion{
+-(void)getNantouRestaurants:(void(^)(BOOL completion))completion{
     _communicator = [[CommunicatorNewWork alloc] init];
     [_communicator fetchDataFromServer:^(NSError *error, id result) {
         if (error) {
@@ -59,10 +59,22 @@ static DataSource *_MySingleTon = nil;
         res.longitude = [self.nantouOpenDataArray[num] valueForKey:@"Px"];
         //緯度
         res.latitude = [self.nantouOpenDataArray[num] valueForKey:@"Py"];
-        res.collected = false;
+        res.collected = NO;
         [restaurants addRestaurant:res];
     }
     _allRestaruants = restaurants.infoCollections;
 }
+
+-(void) getALllMyLoveRestaurants:(void(^)(BOOL completion))completion{
+    _myLoveAllRestaurants = [[NSMutableArray alloc] init];
+    for (Restaurant *res in _allRestaruants) {
+        if (res.collected == YES) {
+            [_myLoveAllRestaurants addObject:res];
+        }
+    }
+    completion(YES);
+}
+
+
     
 @end

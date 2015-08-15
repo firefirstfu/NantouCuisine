@@ -10,6 +10,7 @@
 #import "DataSource.h"
 #import "MBProgressHUD.h"
 #import "CommunicatorNewWork.h"
+#import "RestaurantCollection.h"
 
 
 @interface LocalCuisineTBViewCon ()<CLLocationManagerDelegate>
@@ -29,7 +30,7 @@
     _nantouData = [DataSource shared];
     //開始轉
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [_nantouData getNantouOpendata:^(BOOL completion) {
+    [_nantouData getNantouRestaurants:^(BOOL completion) {
         if (completion) {
             [self.tableView reloadData];
             //停止轉
@@ -37,8 +38,6 @@
         }
     }];
 
-    
-    
     //初始化地理位置管理員
     _locationManager = [[CLLocationManager alloc] init];
     //設定精確度-->先暫時不用
@@ -79,7 +78,6 @@
     //餐廳名稱
     cell.restaurantNameLbl.text = [_nantouData.allRestaruants[indexPath.row] name];
     
-    //餐廳圓形照片
     //圖片栽剪成圓形
     cell.storeImageView.layer.cornerRadius = cell.storeImageView.frame.size.width/2;
     cell.storeImageView.clipsToBounds = YES;
@@ -104,8 +102,7 @@
     //創造一個地理編碼管理員在負責地址轉經緯度
     CLGeocoder *geoder = [CLGeocoder new];
     //開始把經緯度轉換成地址
-    [geoder reverseGeocodeLocation:locaiton completionHandler:^(NSArray *placemarks, NSError *error)
-    {
+    [geoder reverseGeocodeLocation:locaiton completionHandler:^(NSArray *placemarks, NSError *error){
         CLPlacemark *placemark = placemarks[0];
         cell.nantouStateLbl.text = placemark.locality;
     }];
@@ -143,13 +140,15 @@
 
 }
 
+
 #pragma mark - Navigation
 //傳值到下一個ViewController
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"detailLocal"]) {
+        //選擇的row
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         DetailLocalCuisineTBViewCon *targeView = segue.destinationViewController;
-        targeView.restaurant = _nantouData.allRestaruants[path.row];
+        targeView.restaurantNumber = path.row;
     }
 }
 
@@ -158,8 +157,16 @@
 -(IBAction) backToMaster:(UIStoryboardSegue*)segue{
 }
 
+//更新資料
 - (IBAction)refresh:(id)sender {
-    [self.tableView reloadData];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [_nantouData getNantouRestaurants:^(BOOL completion) {
+        if (completion) {
+            [self.tableView reloadData];
+            //停止轉
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+    }];
 }
 
 @end

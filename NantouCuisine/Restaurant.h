@@ -20,7 +20,7 @@
 //7.餐廳距離公里數
 @property(nonatomic, strong) NSString *km;
 //8.餐廳是否加入我的收藏-->預設是NO
-@property(nonatomic, assign) BOOL *collected;
+@property(nonatomic) BOOL collected;
 //9.緯度
 @property(nonatomic, strong) NSString *latitude;
 //10.緯度

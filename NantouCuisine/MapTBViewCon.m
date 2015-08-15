@@ -4,7 +4,8 @@
 #import "DetailLocalCuisineTBViewCon.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-#import <UIImageView+AFNetworking.h>
+#import "CommunicatorNewWork.h"
+#import "DataSource.h"
 
 @interface MapTBViewCon ()<MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -12,14 +13,16 @@
 @property(nonatomic, strong) CLLocationManager *locationManager;
 //地理位置用
 @property(nonatomic, assign) BOOL isFirstLocationReceived;
-
 //座標轉地址編碼時用
 @property(nonatomic, strong) CLLocation *restaurantLocation;
-
 //tableViewcell
 @property(nonatomic, strong) DetailMapTBViewCell *cell;
 //tableViewCell高度
 @property(nonatomic, assign) CGFloat imageHeight;
+@property(nonatomic, strong) DataSource *nantouData;
+@property(nonatomic, strong) Restaurant *tmpRestaurant;
+@property (weak, nonatomic) IBOutlet UISwitch *choiceMyLove;
+
 
 @end
 
@@ -29,6 +32,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //SingleTon物件
+    _nantouData = [DataSource shared];
+    _tmpRestaurant = [[Restaurant alloc] init];
+    _tmpRestaurant = _nantouData.allRestaruants[_restaurantNumber];
     
     //初始化地理位置管理員
     _locationManager = [[CLLocationManager alloc] init];
@@ -43,12 +50,11 @@
     [_locationManager startUpdatingLocation];
     
     
-
     //創造地理位置編碼員
     CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
     //餐廳經緯度轉CLLocation
-    _restaurantLocation = [[CLLocation alloc] initWithLatitude:[_restaurant.latitude doubleValue]
-                                                     longitude:[_restaurant.longitude doubleValue]];
+    _restaurantLocation = [[CLLocation alloc] initWithLatitude:[_tmpRestaurant.latitude doubleValue]
+                                                     longitude:[_tmpRestaurant.longitude doubleValue]];
     //經緯度轉地址
     [geoCoder reverseGeocodeLocation:_restaurantLocation completionHandler:^(NSArray *placemarks, NSError *error) {
         //創造大頭針物件
@@ -59,12 +65,22 @@
         CLPlacemark *placemark = placemarks[0];
         myPoint.title = placemark.locality;
         //餐廳所在區域別
-        myPoint.subtitle = _restaurant.name;
+        myPoint.subtitle = _tmpRestaurant.name;
         //地圖附加大頭針
         [_cell.restaurantMapView addAnnotation:myPoint];
     }];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _tmpRestaurant = [[Restaurant alloc] init];
+    _tmpRestaurant = _nantouData.allRestaruants[_restaurantNumber];
+    if (_tmpRestaurant.collected == YES) {
+        [_choiceMyLove setOn:YES];
+    }else{
+        [_choiceMyLove setOn:NO];
+    }
+}
 
 
 #pragma mark - Table view data source
@@ -83,26 +99,19 @@
     _cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     //餐廳照片
-    //圖片網址有中文的字串要先編碼為UTF-8的格式
-    NSString *urlStr = [_restaurant.imagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    __weak DetailMapTBViewCell *weakCell = _cell;
-    [ _cell.storeImageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"1.jpg"]
-                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-                                      _cell.storeImageView.contentMode = UIViewContentModeScaleToFill;
-                                      weakCell.storeImageView.image = image;
-                                      [weakCell setNeedsLayout];
-                                  }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-                                      _cell.storeImageView.image = [UIImage imageNamed:@"1.jpg"];
-                                  }];
-    
+    NSString *urlStr = _tmpRestaurant.imagePath;
+    [CommunicatorNewWork fetchImage:urlStr withSetImageView:_cell.storeImageView
+               withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
+                   _cell.storeImageView.image = returnImage;
+               }];
+
     //segmented選單增加Method
     [_cell.selectInformationMenu addTarget:self action:@selector(segmentedAction:) forControlEvents:UIControlEventValueChanged];
     //segmented預設值index設為地圖
     _cell.selectInformationMenu.selectedSegmentIndex = 1;
     return _cell;
 }
+
 
 
 //segmented的Method
@@ -124,7 +133,7 @@
     //沒有segue方式的傳值
     DetailLocalCuisineTBViewCon *viewCtrl2 = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_1"];
     //跳轉到目地的storyBoard
-    viewCtrl2.restaurant = _restaurant;
+    viewCtrl2.restaurantNumber = _restaurantNumber;
     [self.navigationController pushViewController:viewCtrl2 animated:NO];
 }
 
@@ -166,23 +175,14 @@
     //圖片栽剪成圓形
     theImageView.layer.cornerRadius = theImageView.frame.size.width/2;
     theImageView.clipsToBounds = YES;
-    
     //餐廳照片
-    _cell.storeImageView.contentMode = UIViewContentModeScaleToFill;
-    //圖片網址有中文的字串要先編碼為UTF-8的格式
-    NSString *urlStr = [_restaurant.imagePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [theImageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"1.jpg"]
-                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-                                      //大頭針圖片
-                                      theImageView.image = image;
-                                      //大頭針附加餐廳圖片
-                                      customPin.leftCalloutAccessoryView = theImageView;
-                                  }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-                                      theImageView.image = [UIImage imageNamed:@"1.jpg"];
-                                  }];
-    
+    theImageView.contentMode = UIViewContentModeScaleToFill;
+    NSString *urlStr = _tmpRestaurant.imagePath;
+    [CommunicatorNewWork fetchImage:urlStr withSetImageView:theImageView
+               withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
+                   theImageView.image = returnImage;
+                   customPin.leftCalloutAccessoryView = theImageView;
+               }];
     
     //導航功能加入
     //客制化大頭針-Add Right Callout Accessory View
@@ -209,10 +209,6 @@
         [_cell.restaurantMapView setRegion:region animated:NO];
         _isFirstLocationReceived = YES;
     }
-    
-    
-    
-    
     return customPin;
 }
 
@@ -233,13 +229,13 @@
     
 
     //創造第2個MapItem—>導航用的專屬物件(屬於MapKit)-->目的地
-    CLLocationCoordinate2D targetCoordinate =CLLocationCoordinate2DMake([_restaurant.latitude doubleValue],
-                                                                        [_restaurant.longitude doubleValue]);
+    CLLocationCoordinate2D targetCoordinate =CLLocationCoordinate2DMake([_tmpRestaurant.latitude doubleValue],
+                                                                        [_tmpRestaurant.longitude doubleValue]);
     MKPlacemark *targetPlace = [[MKPlacemark alloc] initWithCoordinate:targetCoordinate addressDictionary:nil];
     //地圖導航用的物件-->目的地
     MKMapItem *targetMapItem = [[MKMapItem alloc] initWithPlacemark:targetPlace];
-    targetMapItem.name = _restaurant.name;
-    targetMapItem.phoneNumber = _restaurant.phoneNumber;
+    targetMapItem.name = _tmpRestaurant.name;
+    targetMapItem.phoneNumber = _tmpRestaurant.phoneNumber;
     
     //呼叫Apple Map後，可以帶參數過去
     NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving};
@@ -249,6 +245,15 @@
     //現在位置導航到目的地
 //    [MKMapItem openMapsWithItems:@[sourceMapItem, targetMapItem] launchOptions:options];
 
+}
+- (IBAction)choiceMyLoveButton:(id)sender {
+    _tmpRestaurant = _nantouData.allRestaruants[_restaurantNumber];
+    if (_choiceMyLove.isOn == YES) {
+        _tmpRestaurant.collected = YES;
+    }else{
+        _tmpRestaurant.collected = NO;
+    }
+    
 }
 
 @end

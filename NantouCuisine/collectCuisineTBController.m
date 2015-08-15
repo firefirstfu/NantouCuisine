@@ -2,11 +2,14 @@
 #import "collectCuisineTBController.h"
 #import "collectCuisineTBViewCell.h"
 #import "DataSource.h"
+#import "Restaurant.h"
+#import "CommunicatorNewWork.h"
 
 
 @interface collectCuisineTBController ()
 
 @property (nonatomic, strong) NSMutableArray *collections;
+@property(nonatomic, strong) DataSource *nantouData;
 
 @end
 
@@ -16,7 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
 
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    _nantouData = [DataSource shared];
+    [_nantouData getALllMyLoveRestaurants:^(BOOL completion) {
+        if (completion) {
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 
@@ -29,27 +43,43 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return _nantouData.myLoveAllRestaurants.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
     collectCuisineTBViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     //餐廳區域
-    cell.nantouStateLbl.text = @"埔里";
+    cell.nantouStateLbl.text = [_nantouData.myLoveAllRestaurants[indexPath.row] states];
     //餐廳名稱
-    cell.restaurantNameLbl.text = @"有田日本料理";
+    cell.restaurantNameLbl.text = [_nantouData.myLoveAllRestaurants[indexPath.row] name];
     //餐廳距離
     cell.kmLbl.text = @"20km";
     //餐廳圓形照片
     //圖片栽剪成圓形
     cell.storeImageView.layer.cornerRadius = cell.storeImageView.frame.size.width/2;
     cell.storeImageView.clipsToBounds = YES;
-    cell.storeImageView.image = [UIImage imageNamed:@"7.jpg"];
+    //非同步遠端下載image
+    NSString *urlStr = [_nantouData.myLoveAllRestaurants[indexPath.row] imagePath];
+    [CommunicatorNewWork fetchImage:urlStr withSetImageView:cell.storeImageView
+               withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
+                   cell.storeImageView.image = returnImage;
+               }];
+    
     return cell;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -78,14 +108,5 @@
 
 
 
-
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
