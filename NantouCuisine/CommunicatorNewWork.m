@@ -1,6 +1,8 @@
 #import "CommunicatorNewWork.h"
 #import <AFNetworking.h>
 #import <XMLReader.h>
+#import "UIImageView+AFNetworking.h"
+#import <UIKit/UIKit.h>
 
 @interface CommunicatorNewWork()
 
@@ -51,6 +53,44 @@
               failBlock(error);
           }];
 }
+
+
+
+//AfNetworking異步加載圖片
+//圖片網址有中文的字串要先編碼為UTF-8的格式
++(void) fetchImage:(NSString*)imageStirng
+  withSetImageView:(UIImageView*)setImageView
+withPlaceHolderImage:(UIImage*)placeHolderImage withCompletionImage:(void(^)(id returnImage))completionImage{
+    
+    //轉轉轉
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    indicatorView.frame = CGRectMake(0, 0, setImageView.frame.size.width, setImageView.frame.size.height);
+    indicatorView.hidesWhenStopped = YES;
+    indicatorView.color = [UIColor blueColor];
+    [setImageView addSubview:indicatorView];
+    //開始轉轉
+    [indicatorView startAnimating];
+    
+    NSString *urlString = [imageStirng stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    //實作AFNetworking遠端加載圖片Method
+    [setImageView setImageWithURLRequest:request placeholderImage:placeHolderImage
+                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+                                            NSLog(@"Success");
+                                            //停止轉轉
+                                            [indicatorView stopAnimating];
+                                            completionImage(image);
+                                        }failure:^(NSURLRequest *request,NSHTTPURLResponse *response,NSError *error){
+                                            NSLog(@"Failure");
+                                        }];
+}
+
+
+
+
+
+
 
 @end
 

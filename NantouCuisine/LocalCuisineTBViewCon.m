@@ -7,9 +7,10 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-#import "UIImageView+AFNetworking.h"
-#import "UIActivityIndicatorView+AFNetworking.h"
 #import "DataSource.h"
+#import "MBProgressHUD.h"
+#import "CommunicatorNewWork.h"
+
 
 @interface LocalCuisineTBViewCon ()<CLLocationManagerDelegate>
 
@@ -17,7 +18,6 @@
 @property(nonatomic, strong) CLLocationManager *locationManager;
 //現在經緯度座標
 @property(nonatomic, assign) CLLocationCoordinate2D currentLocationCoordinate;
-
 @property(nonatomic, strong) DataSource *nantouData;
 
 @end
@@ -27,11 +27,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _nantouData = [DataSource shared];
+    //開始轉
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [_nantouData getNantouOpendata:^(BOOL completion) {
         if (completion) {
             [self.tableView reloadData];
+            //停止轉
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     }];
+
     
     
     //初始化地理位置管理員
@@ -65,7 +70,6 @@
     //餐廳和User的距離
     [self calculateDistance:cell index:indexPath];
     
-    
     //設定文字的斷點
     cell.restaurantNameLbl.lineBreakMode = NSLineBreakByTruncatingTail;
     //設定文字的粗體和大小
@@ -79,22 +83,14 @@
     //圖片栽剪成圓形
     cell.storeImageView.layer.cornerRadius = cell.storeImageView.frame.size.width/2;
     cell.storeImageView.clipsToBounds = YES;
-    //需要用其他的非同步的手法-->AFnetworking裡面有一個可以調整非同步的圖片
-    //AfNetworking異步加載圖片
-    //圖片網址有中文的字串要先編碼為UTF-8的格式
-    NSString *urlStr = [[_nantouData.allRestaruants[indexPath.row] imagePath]
-                        stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    __weak LocalCuisineTBViewCell *weakCell = cell;
-    [cell.storeImageView setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"1.jpg"]
-                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-                                            weakCell.storeImageView.image = image;
-                                            [weakCell setNeedsLayout];
-                                            
-                                        }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-                                            cell.storeImageView.image = [UIImage imageNamed:@"1.jpg"];
-                                        }];
+    
+    //非同步遠端下載image
+    NSString *urlStr = [_nantouData.allRestaruants[indexPath.row] imagePath];
+    [CommunicatorNewWork fetchImage:urlStr withSetImageView:cell.storeImageView
+               withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
+                   cell.storeImageView.image = returnImage;
+               }];
+
     return cell;
 }
 
