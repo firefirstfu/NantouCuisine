@@ -25,6 +25,7 @@
     return _infoCollections;
 }
 
+
 //增加餐廳名單
 -(void) addRestaurant:(Restaurant*)restaurant{
     [self.infoCollections addObject:restaurant];

@@ -2,7 +2,6 @@
 #import "LocalCuisineTBViewCon.h"
 #import "LocalCuisineTBViewCell.h"
 #import "DetailLocalCuisineTBViewCon.h"
-#import <CoreLocation/CoreLocation.h>
 #import "DataSource.h"
 #import "MBProgressHUD.h"
 #import "CommunicatorNewWork.h"
@@ -11,7 +10,7 @@
 
 
 
-@interface LocalCuisineTBViewCon()<CLLocationManagerDelegate>
+@interface LocalCuisineTBViewCon()
 
 @property(nonatomic, strong) DataSource *nantouData;
 @property(nonatomic, strong) LocationManager *location;
@@ -47,17 +46,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      LocalCuisineTBViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    
     //計算距離及區域
     //取餐廳經緯度
     double latitude = [[_nantouData.allRestaruants[indexPath.row] latitude] doubleValue];
     double longitude = [[_nantouData.allRestaruants[indexPath.row] longitude] doubleValue];
     //calculate
     [_location LocationZipCodeWithLatitude:latitude withLongitude:longitude withCompletion:^(CLPlacemark *placemark) {
+        cell.nantouStateLbl.text = @"";
         cell.nantouStateLbl.text = placemark.locality;
     }];
     
     //calculate user離餐廳距離
     [_location calculateDistanceWithRestaurantLatitude:latitude withRestaurantLongitude:longitude withCompletion:^(CLLocationDistance meters) {
+        cell.kmLbl.text = nil;
         cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters];
         
     }];
@@ -69,6 +71,7 @@
     //設定文字的粗體和大小
     cell.nantouStateLbl.font = [UIFont boldSystemFontOfSize:17.0f];
     //餐廳名稱
+    cell.restaurantNameLbl.text = @"";
     cell.restaurantNameLbl.text = [_nantouData.allRestaruants[indexPath.row] name];
     
     //圖片栽剪成圓形
@@ -79,6 +82,7 @@
     NSString *urlStr = [_nantouData.allRestaruants[indexPath.row] imagePath];
     [CommunicatorNewWork fetchImage:urlStr withSetImageView:cell.storeImageView
                withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
+                   cell.storeImageView.image = nil;
                    cell.storeImageView.image = returnImage;
                }];
 

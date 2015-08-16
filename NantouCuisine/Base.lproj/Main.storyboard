@@ -104,7 +104,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="在地美食" id="EbK-9c-WOG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ooJ-98-3rx">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="ooJ-98-3rx">
                             <connections>
                                 <action selector="refresh:" destination="qjh-RR-ZKh" id="Wgh-gP-Zxn"/>
                             </connections>
@@ -538,28 +538,42 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vza-vm-ABp" id="t6c-Ea-l8n">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lk1-DK-dIG">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lk1-DK-dIG">
                                             <rect key="frame" x="88" y="8" width="110" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGk-XT-xMw">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGk-XT-xMw">
                                             <rect key="frame" x="88" y="35" width="136" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGt-Ri-885">
-                                            <rect key="frame" x="223" y="8" width="56" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-sF-aTP">
+                                            <rect key="frame" x="8" y="3" width="62" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="ZrH-Cy-dYn"/>
+                                                <constraint firstAttribute="width" constant="62" id="ihU-vD-U0v"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGt-Ri-885">
+                                            <rect key="frame" x="206" y="8" width="81" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-sF-aTP">
-                                            <rect key="frame" x="8" y="3" width="62" height="60"/>
-                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sGk-XT-xMw" firstAttribute="bottom" secondItem="t6c-Ea-l8n" secondAttribute="bottomMargin" id="3Ie-Tf-Rgw"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="LGt-Ri-885" secondAttribute="trailing" constant="-8" id="AmA-XW-GIs"/>
+                                        <constraint firstItem="Lk1-DK-dIG" firstAttribute="top" secondItem="t6c-Ea-l8n" secondAttribute="topMargin" id="BNx-gQ-kjt"/>
+                                        <constraint firstItem="Lk1-DK-dIG" firstAttribute="leading" secondItem="Sxm-sF-aTP" secondAttribute="trailing" constant="18" id="NB2-yB-sAR"/>
+                                        <constraint firstItem="Sxm-sF-aTP" firstAttribute="centerY" secondItem="t6c-Ea-l8n" secondAttribute="centerY" id="R90-7w-Pux"/>
+                                        <constraint firstItem="LGt-Ri-885" firstAttribute="top" secondItem="t6c-Ea-l8n" secondAttribute="topMargin" id="q8G-0a-lhm"/>
+                                        <constraint firstItem="sGk-XT-xMw" firstAttribute="leading" secondItem="Sxm-sF-aTP" secondAttribute="trailing" constant="18" id="ugg-dt-yJT"/>
+                                        <constraint firstItem="Sxm-sF-aTP" firstAttribute="leading" secondItem="t6c-Ea-l8n" secondAttribute="leadingMargin" constant="-7" id="wuB-yC-qBF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="kmLbl" destination="LGt-Ri-885" id="z0a-qy-jr6"/>

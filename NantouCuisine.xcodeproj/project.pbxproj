@@ -33,6 +33,8 @@
 		10A496921B7F9D3D003A62EA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496911B7F9D3D003A62EA /* Reachability.m */; };
 		10A496941B7FA122003A62EA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A496931B7FA122003A62EA /* Social.framework */; };
 		10A4969A1B7FDE3A003A62EA /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496991B7FDE3A003A62EA /* LocationManager.m */; };
+		10A496D61B80AEBB003A62EA /* PlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496D51B80AEBB003A62EA /* PlistManager.m */; };
+		10A496D81B80B005003A62EA /* restaurantPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10A496D71B80B005003A62EA /* restaurantPlist.plist */; };
 		D9BC64A2AB7C758B14E90C91 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DDE342E5004CC7203E0937 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,9 @@
 		10A496931B7FA122003A62EA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		10A496981B7FDE3A003A62EA /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		10A496991B7FDE3A003A62EA /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		10A496D41B80AEBB003A62EA /* PlistManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistManager.h; sourceTree = "<group>"; };
+		10A496D51B80AEBB003A62EA /* PlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistManager.m; sourceTree = "<group>"; };
+		10A496D71B80B005003A62EA /* restaurantPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = restaurantPlist.plist; sourceTree = "<group>"; };
 		13DDE342E5004CC7203E0937 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		597425E607D85298C8BA0A06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CDCF2DC7843D8BCC77752C14 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,8 +181,12 @@
 		10560CF71B7E52F700F58B80 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				10A496971B7FC7C0003A62EA /* CoreLoaction */,
+				10A496961B7FC7AE003A62EA /* NewWork */,
+				10A496DB1B81287C003A62EA /* PlistManager */,
 				1057EEC61B7CFF6D004FA351 /* DataSource.h */,
 				1057EEC71B7CFF6D004FA351 /* DataSource.m */,
+				10A496D71B80B005003A62EA /* restaurantPlist.plist */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -238,7 +247,6 @@
 				1097C78A1B506C760071E943 /* Controller */,
 				1097C78B1B506C8C0071E943 /* Model */,
 				10560CF71B7E52F700F58B80 /* ViewModel */,
-				10A496951B7FC78F003A62EA /* MyAPI */,
 				1097C75B1B506A0C0071E943 /* Supporting Files */,
 			);
 			path = NantouCuisine;
@@ -296,33 +304,33 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		10A496951B7FC78F003A62EA /* MyAPI */ = {
+		10A496961B7FC7AE003A62EA /* NewWork */ = {
 			isa = PBXGroup;
 			children = (
-				10A496971B7FC7C0003A62EA /* MapAndLoaction */,
-				10A496961B7FC7AE003A62EA /* NewWork */,
 				104C9AB21B5FE5C000790BDB /* CommunicatorNewWork.h */,
 				104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */,
 				10A496901B7F9D3D003A62EA /* Reachability.h */,
 				10A496911B7F9D3D003A62EA /* Reachability.m */,
 			);
-			name = MyAPI;
-			sourceTree = "<group>";
-		};
-		10A496961B7FC7AE003A62EA /* NewWork */ = {
-			isa = PBXGroup;
-			children = (
-			);
 			name = NewWork;
 			sourceTree = "<group>";
 		};
-		10A496971B7FC7C0003A62EA /* MapAndLoaction */ = {
+		10A496971B7FC7C0003A62EA /* CoreLoaction */ = {
 			isa = PBXGroup;
 			children = (
 				10A496981B7FDE3A003A62EA /* LocationManager.h */,
 				10A496991B7FDE3A003A62EA /* LocationManager.m */,
 			);
-			name = MapAndLoaction;
+			name = CoreLoaction;
+			sourceTree = "<group>";
+		};
+		10A496DB1B81287C003A62EA /* PlistManager */ = {
+			isa = PBXGroup;
+			children = (
+				10A496D41B80AEBB003A62EA /* PlistManager.h */,
+				10A496D51B80AEBB003A62EA /* PlistManager.m */,
+			);
+			name = PlistManager;
 			sourceTree = "<group>";
 		};
 		14593FE0BF9C6AD1FFC1FAF2 /* Pods */ = {
@@ -396,6 +404,7 @@
 				TargetAttributes = {
 					1097C7571B506A0C0071E943 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = WY468E45SJ;
 					};
 					1097C7701B506A0C0071E943 = {
 						CreatedOnToolsVersion = 6.4;
@@ -427,6 +436,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10A496D81B80B005003A62EA /* restaurantPlist.plist in Resources */,
 				1097C7671B506A0C0071E943 /* Main.storyboard in Resources */,
 				1097C76C1B506A0C0071E943 /* LaunchScreen.xib in Resources */,
 				1097C7691B506A0C0071E943 /* Images.xcassets in Resources */,
@@ -495,6 +505,7 @@
 				10A4969A1B7FDE3A003A62EA /* LocationManager.m in Sources */,
 				105D72381B5A14C500F624BD /* LocalCuisineTBViewCon.m in Sources */,
 				105318F01B5F1EB0006708E5 /* RestaurantCollection.m in Sources */,
+				10A496D61B80AEBB003A62EA /* PlistManager.m in Sources */,
 				102645561B5CB92500D91102 /* MapTBViewCon.m in Sources */,
 				1097C75E1B506A0C0071E943 /* main.m in Sources */,
 				104C9AB41B5FE5C000790BDB /* CommunicatorNewWork.m in Sources */,
@@ -625,6 +636,7 @@
 			baseConfigurationReference = 597425E607D85298C8BA0A06 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NantouCuisine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -637,6 +649,7 @@
 			baseConfigurationReference = CDCF2DC7843D8BCC77752C14 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NantouCuisine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
