@@ -10,7 +10,8 @@
 #import "LocationManager.h"
 
 
-@interface LocalCuisineTBViewCon()
+
+@interface LocalCuisineTBViewCon()<CLLocationManagerDelegate>
 
 @property(nonatomic, strong) DataSource *nantouData;
 @property(nonatomic, strong) LocationManager *location;
@@ -57,7 +58,8 @@
     
     //calculate user離餐廳距離
     [_location calculateDistanceWithRestaurantLatitude:latitude withRestaurantLongitude:longitude withCompletion:^(CLLocationDistance meters) {
-         cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters];
+        cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters];
+        
     }];
     
     //設定文字的斷點
@@ -97,6 +99,7 @@
 
 //更新資料
 - (IBAction)refresh:(id)sender {
+     [MBProgressHUD hideHUDForView:self.view animated:YES];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [_nantouData getNantouRestaurants:^(BOOL completion) {
         if (completion) {

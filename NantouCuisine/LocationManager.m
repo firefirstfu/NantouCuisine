@@ -8,7 +8,8 @@
 
 //現在經緯度座標
 @property(nonatomic, assign) CLLocationCoordinate2D currentLocationCoordinate;
-
+//CLLocationManager一定要設成全局變量，才可以使用代理模式
+@property(nonatomic, strong) CLLocationManager *myLocationManager;
 @end
 
 
@@ -18,18 +19,18 @@
     self = [super init];
     if(self){
         //初始化地理位置管理員
-        CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+        _myLocationManager = [[CLLocationManager alloc] init];
         //設定精確度
         //[locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
         //設定委託給viewController
-        locationManager.delegate = self;
+        _myLocationManager.delegate = self;
         //判別是否有支援這個方法-->才用的手法-->因為此方法在ios8以後才支援
-        if ([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        if ([_myLocationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             //此方法在ios8以後才支援
-            [locationManager requestAlwaysAuthorization];
+            [_myLocationManager requestAlwaysAuthorization];
         }
         //開始計算所在位地置的功能
-        [locationManager startUpdatingLocation];
+        [_myLocationManager startUpdatingLocation];
         return self;
     }
     return  nil;
