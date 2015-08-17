@@ -5,6 +5,7 @@
 #import "Restaurant.h"
 #import "CommunicatorNewWork.h"
 #import "LocationManager.h"
+#import "DetailLocalCuisineTBViewCon.h"
 
 
 @interface collectCuisineTBController ()
@@ -23,18 +24,16 @@
     //初始化地理位置管理員
     //位置管理員
     _location = [[LocationManager alloc] init];
+    //初始DataSource singleTon
     _nantouData = [DataSource shared];
-    
     [_nantouData getALllMyLoveRestaurants:^(BOOL completion) {
         if (completion) {
             [self.tableView reloadData];
         }}];
 }
-
+//為了取得我的最愛，所以放在這裡
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-        //初始化地理位置管理員
-        //位置管理員
     [_nantouData getALllMyLoveRestaurants:^(BOOL completion) {
     if (completion) {
         [self.tableView reloadData];
@@ -85,5 +84,18 @@
                }];
     return cell;
 }
+
+
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailLocalCuisineTBViewCon *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_1"];
+    vc.restaurantNumber = [_nantouData.myLoveAllRestaurants[indexPath.row] resNumber];
+    [self.navigationController pushViewController:vc animated:nil];
+//    NSLog(@"%d", [_nantouData._nantouData.myLoveAllRestaurants[indexPath.row] resNumber]);
+//    NSLog(@"%@", [_nantouData.allRestaruants[indexPath.row] name]);
+}
+
+
+
 
 @end

@@ -3,6 +3,6 @@
 #import "Restaurant.h"
 @interface MapTBViewCon : UITableViewController
 
-@property (nonatomic, assign) NSInteger restaurantNumber;
+@property (nonatomic, assign) int restaurantNumber;
 
 @end

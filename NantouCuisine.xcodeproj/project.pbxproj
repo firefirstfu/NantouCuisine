@@ -181,12 +181,12 @@
 		10560CF71B7E52F700F58B80 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				10A496D71B80B005003A62EA /* restaurantPlist.plist */,
 				10A496971B7FC7C0003A62EA /* CoreLoaction */,
 				10A496961B7FC7AE003A62EA /* NewWork */,
 				10A496DB1B81287C003A62EA /* PlistManager */,
 				1057EEC61B7CFF6D004FA351 /* DataSource.h */,
 				1057EEC71B7CFF6D004FA351 /* DataSource.m */,
-				10A496D71B80B005003A62EA /* restaurantPlist.plist */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";

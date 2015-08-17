@@ -25,6 +25,8 @@
 @property(nonatomic, strong) NSString *latitude;
 //10.緯度
 @property(nonatomic, strong) NSString *longitude;
+//11.編號
+@property(nonatomic, assign) int *resNumber;
 @end
 
 

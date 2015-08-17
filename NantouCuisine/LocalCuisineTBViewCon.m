@@ -46,7 +46,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      LocalCuisineTBViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    
     //計算距離及區域
     //取餐廳經緯度
     double latitude = [[_nantouData.allRestaruants[indexPath.row] latitude] doubleValue];
@@ -85,7 +84,7 @@
                    cell.storeImageView.image = nil;
                    cell.storeImageView.image = returnImage;
                }];
-
+    
     return cell;
 }
 
@@ -97,7 +96,7 @@
         //選擇的row
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         DetailLocalCuisineTBViewCon *targeView = segue.destinationViewController;
-        targeView.restaurantNumber = path.row;
+        targeView.restaurantNumber =  path.row;
     }
 }
 

@@ -69,7 +69,6 @@ static DataSource *_MySingleTon = nil;
             //收藏(我的最愛)-->存布林值
             [plistTmp setValue:[NSNumber numberWithBool:NO] forKey:@"collected"];
             [_saveDict setObject:plistTmp forKey:[self.nantouOpenDataArray[num1] valueForKey:@"Name"]];
-            
         }
         [_plistMananger updateDataInPlist:_saveDict];
         [self saveDataToModel];
@@ -105,6 +104,7 @@ static DataSource *_MySingleTon = nil;
         //緯度
         res.latitude = [[retaruaantsArray objectAtIndex:num] objectForKey:@"latitude"];
         res.collected = [[[retaruaantsArray objectAtIndex:num] objectForKey:@"collected"] boolValue];
+        res.resNumber = num;
         [restaurants addRestaurant:res];
     }
     //最後return給前端用的資料-->nsmutablearray

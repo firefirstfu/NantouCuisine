@@ -30,7 +30,6 @@
 }
 
 
-
 //撈Plist Data
 -(NSMutableDictionary*) getDataInPlist{
     //讀取Plist內的Data(dictionary)

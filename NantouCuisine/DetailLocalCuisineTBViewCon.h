@@ -4,6 +4,6 @@
 
 @interface DetailLocalCuisineTBViewCon : UITableViewController
 
-@property (nonatomic, assign) NSInteger restaurantNumber;
+@property (nonatomic, assign) int restaurantNumber;
 
 @end
