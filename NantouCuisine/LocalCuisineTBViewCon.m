@@ -10,10 +10,14 @@
 
 
 
-@interface LocalCuisineTBViewCon()
+@interface LocalCuisineTBViewCon()<UISearchBarDelegate>
 
 @property(nonatomic, strong) DataSource *nantouData;
 @property(nonatomic, strong) LocationManager *location;
+
+//SearchBar用Array
+@property(nonatomic, strong) NSMutableArray *searchArray;
+
 
 @end
 
@@ -22,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _nantouData = [DataSource shared];
+    
     //開始轉轉
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [_nantouData getNantouRestaurants:^(BOOL completion) {
@@ -41,6 +46,7 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     return [_nantouData.allRestaruants count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -52,15 +58,16 @@
     double longitude = [[_nantouData.allRestaruants[indexPath.row] longitude] doubleValue];
     //calculate
     [_location LocationZipCodeWithLatitude:latitude withLongitude:longitude withCompletion:^(CLPlacemark *placemark) {
-        cell.nantouStateLbl.text = @"";
         cell.nantouStateLbl.text = placemark.locality;
     }];
     
     //calculate user離餐廳距離
     [_location calculateDistanceWithRestaurantLatitude:latitude withRestaurantLongitude:longitude withCompletion:^(CLLocationDistance meters) {
-        cell.kmLbl.text = nil;
-        cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters];
-        
+        if (meters > 300) {
+            cell.kmLbl.text = nil;
+        }else{
+            cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters];
+        }
     }];
     
     //設定文字的斷點
@@ -70,7 +77,6 @@
     //設定文字的粗體和大小
     cell.nantouStateLbl.font = [UIFont boldSystemFontOfSize:17.0f];
     //餐廳名稱
-    cell.restaurantNameLbl.text = @"";
     cell.restaurantNameLbl.text = [_nantouData.allRestaruants[indexPath.row] name];
     
     //圖片栽剪成圓形
@@ -84,7 +90,6 @@
                    cell.storeImageView.image = nil;
                    cell.storeImageView.image = returnImage;
                }];
-    
     return cell;
 }
 

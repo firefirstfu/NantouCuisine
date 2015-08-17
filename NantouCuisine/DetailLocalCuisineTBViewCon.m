@@ -73,12 +73,14 @@
     //餐廳網址
     _cell.webSiteLbl.text = [_nantouData.allRestaruants[_restaurantNumber] webSite];
 
-    //如果沒提供網址，則網址Row隱藏
-    if ([_cell.webSiteLbl.text length] == 0) {
-        _cell.webSiteLbl.text = @"未提供";
-        if (indexPath.row == 5) {
-        }
-    }
+//    //如果沒提供網址，則網址Row隱藏
+//    if ([_cell.webSiteLbl.text length] == 0) {
+////        _cell.webSiteLbl.text = @"未提供";
+//        if (indexPath.row == 5) {
+//            _cell.hidden=YES;
+//            
+//        }
+//    }
     
     //餐廳簡述
     _cell.descriptionLbl.editable = NO;
@@ -168,6 +170,15 @@
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+//隱藏沒有值的欄位-->這裡是WebURL
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([_cell.webSiteLbl.text length] ==0 && indexPath.row == 5) {
+        return  0;
+    }else{
+        return UITableViewAutomaticDimension;
+    }
 }
 
 
