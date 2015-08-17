@@ -76,8 +76,11 @@
     
     //calculate user離餐廳距離
     [_location calculateDistanceWithRestaurantLatitude:latitude withRestaurantLongitude:longitude withCompletion:^(CLLocationDistance meters) {
-        
-        cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters];
+        if (meters > 300) {
+            cell.kmLbl.text = nil;
+        }else{
+            cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters];
+        }
     }];
 
     //餐廳圓形照片

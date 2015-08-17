@@ -123,7 +123,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1026459F1B5D04F500D91102 /*  Master */ = {
+		1026459F1B5D04F500D91102 /* Master */ = {
 			isa = PBXGroup;
 			children = (
 				105D72361B5A14C500F624BD /* LocalCuisineTBViewCon.h */,
@@ -131,10 +131,10 @@
 				105D723C1B5A155E00F624BD /* LocalCuisineTBViewCell.h */,
 				105D723D1B5A155E00F624BD /* LocalCuisineTBViewCell.m */,
 			);
-			name = " Master";
+			name = Master;
 			sourceTree = "<group>";
 		};
-		102645A01B5D051700D91102 /* Detail_Info */ = {
+		102645A01B5D051700D91102 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				105D72391B5A151A00F624BD /* DetailLocalCuisineTBViewCon.h */,
@@ -143,16 +143,16 @@
 				105D72401B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m */,
 				102645A51B5D0F6800D91102 /* DetailMap */,
 			);
-			name = Detail_Info;
+			name = Detail;
 			sourceTree = "<group>";
 		};
-		102645A11B5D058500D91102 /* Web_Info */ = {
+		102645A11B5D058500D91102 /* Web */ = {
 			isa = PBXGroup;
 			children = (
 				105D726A1B5C05BB00F624BD /* WebViewController.h */,
 				105D726B1B5C05BB00F624BD /* WebViewController.m */,
 			);
-			name = Web_Info;
+			name = Web;
 			sourceTree = "<group>";
 		};
 		102645A51B5D0F6800D91102 /* DetailMap */ = {
@@ -176,12 +176,12 @@
 		10560CF71B7E52F700F58B80 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				10A496D71B80B005003A62EA /* restaurantPlist.plist */,
+				1057EEC61B7CFF6D004FA351 /* DataSource.h */,
+				1057EEC71B7CFF6D004FA351 /* DataSource.m */,
 				10A496971B7FC7C0003A62EA /* CoreLoaction */,
 				10A496961B7FC7AE003A62EA /* NewWork */,
 				10A496DB1B81287C003A62EA /* PlistManager */,
-				1057EEC61B7CFF6D004FA351 /* DataSource.h */,
-				1057EEC71B7CFF6D004FA351 /* DataSource.m */,
-				10A496D71B80B005003A62EA /* restaurantPlist.plist */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -194,17 +194,17 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		105D722F1B59E2F300F624BD /* LocalCuisine */ = {
+		105D722F1B59E2F300F624BD /* NantouRestaurant */ = {
 			isa = PBXGroup;
 			children = (
-				1026459F1B5D04F500D91102 /*  Master */,
-				102645A01B5D051700D91102 /* Detail_Info */,
-				102645A11B5D058500D91102 /* Web_Info */,
+				1026459F1B5D04F500D91102 /* Master */,
+				102645A01B5D051700D91102 /* Detail */,
+				102645A11B5D058500D91102 /* Web */,
 			);
-			name = LocalCuisine;
+			name = NantouRestaurant;
 			sourceTree = "<group>";
 		};
-		105D72311B59E33E00F624BD /* CollectCuisine */ = {
+		105D72311B59E33E00F624BD /* LoveRestaurant */ = {
 			isa = PBXGroup;
 			children = (
 				105318E51B5E7F6C006708E5 /* collectCuisineTBController.h */,
@@ -212,17 +212,25 @@
 				105318E81B5E800A006708E5 /* collectCuisineTBViewCell.h */,
 				105318E91B5E800A006708E5 /* collectCuisineTBViewCell.m */,
 			);
-			name = CollectCuisine;
+			name = LoveRestaurant;
+			sourceTree = "<group>";
+		};
+		107865CA1B82095B00EE6645 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				1097C7741B506A0C0071E943 /* NantouCuisineTests */,
+				1097C7591B506A0C0071E943 /* Products */,
+				14593FE0BF9C6AD1FFC1FAF2 /* Pods */,
+				8CEF20F6569391F0EB8B3A9E /* Frameworks */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 		1097C74F1B506A0C0071E943 = {
 			isa = PBXGroup;
 			children = (
 				1097C75A1B506A0C0071E943 /* NantouCuisine */,
-				1097C7741B506A0C0071E943 /* NantouCuisineTests */,
-				1097C7591B506A0C0071E943 /* Products */,
-				14593FE0BF9C6AD1FFC1FAF2 /* Pods */,
-				8CEF20F6569391F0EB8B3A9E /* Frameworks */,
+				107865CA1B82095B00EE6645 /* Others */,
 			);
 			sourceTree = "<group>";
 		};
@@ -282,8 +290,8 @@
 		1097C78A1B506C760071E943 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				105D722F1B59E2F300F624BD /* LocalCuisine */,
-				105D72311B59E33E00F624BD /* CollectCuisine */,
+				105D722F1B59E2F300F624BD /* NantouRestaurant */,
+				105D72311B59E33E00F624BD /* LoveRestaurant */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

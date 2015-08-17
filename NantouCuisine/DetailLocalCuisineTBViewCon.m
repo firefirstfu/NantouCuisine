@@ -31,6 +31,9 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     //SingleTon物件
     _nantouData = [DataSource shared];
+    
+    //消去TableView最後沒用到的欄位的分隔線
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -73,15 +76,6 @@
     //餐廳網址
     _cell.webSiteLbl.text = [_nantouData.allRestaruants[_restaurantNumber] webSite];
 
-//    //如果沒提供網址，則網址Row隱藏
-//    if ([_cell.webSiteLbl.text length] == 0) {
-////        _cell.webSiteLbl.text = @"未提供";
-//        if (indexPath.row == 5) {
-//            _cell.hidden=YES;
-//            
-//        }
-//    }
-    
     //餐廳簡述
     _cell.descriptionLbl.editable = NO;
     _cell.descriptionLbl.text  = [[_nantouData.allRestaruants[_restaurantNumber] introduction] stringByReplacingOccurrencesOfString:@"" withString:@""];
