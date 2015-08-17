@@ -22,9 +22,9 @@
 		105D723E1B5A155E00F624BD /* LocalCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723D1B5A155E00F624BD /* LocalCuisineTBViewCell.m */; };
 		105D72411B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D72401B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m */; };
 		105D726C1B5C05BB00F624BD /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D726B1B5C05BB00F624BD /* WebViewController.m */; };
+		107865CD1B821AD200EE6645 /* NetConnectCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 107865CC1B821AD200EE6645 /* NetConnectCheck.m */; };
 		1097C75E1B506A0C0071E943 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C75D1B506A0C0071E943 /* main.m */; };
 		1097C7611B506A0C0071E943 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C7601B506A0C0071E943 /* AppDelegate.m */; };
-		1097C7641B506A0C0071E943 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C7631B506A0C0071E943 /* ViewController.m */; };
 		1097C7671B506A0C0071E943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1097C7651B506A0C0071E943 /* Main.storyboard */; };
 		1097C7691B506A0C0071E943 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1097C7681B506A0C0071E943 /* Images.xcassets */; };
 		1097C76C1B506A0C0071E943 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1097C76A1B506A0C0071E943 /* LaunchScreen.xib */; };
@@ -75,13 +75,13 @@
 		105D72401B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLocalCuisineTBViewCell.m; sourceTree = "<group>"; };
 		105D726A1B5C05BB00F624BD /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		105D726B1B5C05BB00F624BD /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		107865CB1B821AD200EE6645 /* NetConnectCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetConnectCheck.h; sourceTree = "<group>"; };
+		107865CC1B821AD200EE6645 /* NetConnectCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetConnectCheck.m; sourceTree = "<group>"; };
 		1097C7581B506A0C0071E943 /* NantouCuisine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NantouCuisine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1097C75C1B506A0C0071E943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1097C75D1B506A0C0071E943 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1097C75F1B506A0C0071E943 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1097C7601B506A0C0071E943 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1097C7621B506A0C0071E943 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1097C7631B506A0C0071E943 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1097C7661B506A0C0071E943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1097C7681B506A0C0071E943 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1097C76B1B506A0C0071E943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -258,8 +258,6 @@
 		1097C75B1B506A0C0071E943 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1097C7621B506A0C0071E943 /* ViewController.h */,
-				1097C7631B506A0C0071E943 /* ViewController.m */,
 				1097C75F1B506A0C0071E943 /* AppDelegate.h */,
 				1097C7601B506A0C0071E943 /* AppDelegate.m */,
 				1097C7681B506A0C0071E943 /* Images.xcassets */,
@@ -314,6 +312,8 @@
 				104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */,
 				10A496901B7F9D3D003A62EA /* Reachability.h */,
 				10A496911B7F9D3D003A62EA /* Reachability.m */,
+				107865CB1B821AD200EE6645 /* NetConnectCheck.h */,
+				107865CC1B821AD200EE6645 /* NetConnectCheck.m */,
 			);
 			name = NewWork;
 			sourceTree = "<group>";
@@ -499,9 +499,9 @@
 				105D723E1B5A155E00F624BD /* LocalCuisineTBViewCell.m in Sources */,
 				105D726C1B5C05BB00F624BD /* WebViewController.m in Sources */,
 				105318EA1B5E800A006708E5 /* collectCuisineTBViewCell.m in Sources */,
-				1097C7641B506A0C0071E943 /* ViewController.m in Sources */,
 				1057EEC81B7CFF6D004FA351 /* DataSource.m in Sources */,
 				1097C7611B506A0C0071E943 /* AppDelegate.m in Sources */,
+				107865CD1B821AD200EE6645 /* NetConnectCheck.m in Sources */,
 				105318ED1B5F1C30006708E5 /* Restaurant.m in Sources */,
 				105318E71B5E7F6C006708E5 /* collectCuisineTBController.m in Sources */,
 				10A4969A1B7FDE3A003A62EA /* LocationManager.m in Sources */,

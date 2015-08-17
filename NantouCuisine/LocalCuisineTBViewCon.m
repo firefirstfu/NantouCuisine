@@ -7,6 +7,7 @@
 #import "CommunicatorNewWork.h"
 #import "RestaurantCollection.h"
 #import "LocationManager.h"
+#import "NetConnectCheck.h"
 
 
 
@@ -17,7 +18,7 @@
 
 //SearchBar用Array
 @property(nonatomic, strong) NSMutableArray *searchArray;
-
+@property(nonatomic, strong) NetConnectCheck *netConnectCheck;
 
 @end
 
@@ -38,7 +39,38 @@
     }];
     //位置管理員
     _location = [[LocationManager alloc] init];
+    
+    //網路監測管理員
+    _netConnectCheck = [[NetConnectCheck alloc] init];
+    //網路監測Method call back
+    [_netConnectCheck networkConnectCheck:nil breakConnect:^{
+        UIAlertController *alertView =[UIAlertController alertControllerWithTitle:@"連線錯誤"
+                                                                          message:@"連線品質不佳，請稍候再試"
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+        //Alert按鈕物件
+        UIAlertAction *alertEnter = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction *aciton){
+                                                           }];
+        //把按鈕加到AlertView上面
+        [alertView addAction:alertEnter];
+        //把AlertView加到View上面
+        [self presentViewController:alertView animated:YES completion:nil];
+    } revertConnect:^{
+        UIAlertController *alertView =[UIAlertController alertControllerWithTitle:@"重新連線"
+                                                                          message:@"網路重新連線..."
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+        //Alert按鈕物件
+        UIAlertAction *alertEnter = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction *aciton){
+                                                           }];
+        //把按鈕加到AlertView上面
+        [alertView addAction:alertEnter];
+        [self presentViewController:alertView animated:YES completion:nil];
+    }];
+    
 }
+
+
 
 
 #pragma mark - Table view data source
