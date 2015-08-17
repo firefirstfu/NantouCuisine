@@ -2,10 +2,11 @@
 #import "DetailLocalCuisineTBViewCon.h"
 #import "DetailLocalCuisineTBViewCell.h"
 #import "WebViewController.h"
-#import <Social/Social.h>
+
 #import "CommunicatorNewWork.h"
-#import "MapTBViewCon.h"
+#import "MapViewCon.h"
 #import "DataSource.h"
+#import <Social/Social.h>
 
 
 
@@ -112,27 +113,35 @@
     }
 }
 
-//分享到Facebook
+//分享到Facebook?????
 -(void) shareMyLove{
     //好像一次只能跳出一個分享-->這裡是Facebook
-//    SLComposeViewController *socialControl = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-//    // add initial text
-////    [socialControl setInitialText:[_nantouData.allRestaruants[_restaurantNumber] name]];
-//    // add an image
-////    [socialControl addImage:[UIImage imageNamed:@"98.jpg"]];
-//    // add a URL
-////    [socialControl addURL:[NSURL URLWithString:[_nantouData.allRestaruants[_restaurantNumber] webSite]]];
-//    // present controller
-//    [self presentViewController:socialControl animated:YES completion:nil];
+    SLComposeViewController *socialControl = [SLComposeViewController
+                                              composeViewControllerForServiceType:SLServiceTypeFacebook];
+    // add initial text
+    [socialControl setInitialText:[_nantouData.allRestaruants[_restaurantNumber] address]];
+    // add an image
+    //非同步遠端下載image
+    NSString *urlStr = [_nantouData.allRestaruants[_restaurantNumber] imagePath];
+    [CommunicatorNewWork fetchImage:urlStr withSetImageView:_cell.storeImageView
+               withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
+                   [socialControl addImage:returnImage];
+               }];
+    // add a URL
+    [socialControl addURL:[NSURL URLWithString:[_nantouData.allRestaruants[_restaurantNumber] webSite]]];
+    // present controller
+    [self presentViewController:socialControl animated:YES completion:nil];
+    
+  
 }
 
 
 //StoryBoard跳轉
 -(void)gotAnother{
     //沒有segue方式的傳值
-    MapTBViewCon *viewCtrl2 = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_2"];
-    viewCtrl2.restaurantNumber = _restaurantNumber;
-    [self.navigationController pushViewController:viewCtrl2 animated:NO];
+    MapViewCon *mapViewCon = [self.storyboard instantiateViewControllerWithIdentifier:@"mapViewCon"];
+    mapViewCon.restaurantNumber = _restaurantNumber;
+    [self.navigationController pushViewController:mapViewCon animated:NO];
 }
 
 
@@ -154,9 +163,13 @@
     }else{
         _tmpRestaurant.collected = NO;
         [_nantouData saveMyLoveToPlsit:[_tmpRestaurant name] choiceOfBool:NO];
-
     }
 }
+
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 
 @end

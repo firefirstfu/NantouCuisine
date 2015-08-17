@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		102645561B5CB92500D91102 /* MapTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 102645551B5CB92500D91102 /* MapTBViewCon.m */; };
-		102645591B5CBB8F00D91102 /* DetailMapTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 102645581B5CBB8F00D91102 /* DetailMapTBViewCell.m */; };
+		102645561B5CB92500D91102 /* MapViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 102645551B5CB92500D91102 /* MapViewCon.m */; };
 		102645991B5CE48600D91102 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72341B5A0F0000F624BD /* CoreLocation.framework */; };
 		1026459A1B5CE48B00D91102 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105D72321B5A0EF600F624BD /* MapKit.framework */; };
 		104C9AB41B5FE5C000790BDB /* CommunicatorNewWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */; };
@@ -49,10 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		102645541B5CB92500D91102 /* MapTBViewCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTBViewCon.h; sourceTree = "<group>"; };
-		102645551B5CB92500D91102 /* MapTBViewCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTBViewCon.m; sourceTree = "<group>"; };
-		102645571B5CBB8F00D91102 /* DetailMapTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMapTBViewCell.h; sourceTree = "<group>"; };
-		102645581B5CBB8F00D91102 /* DetailMapTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMapTBViewCell.m; sourceTree = "<group>"; };
+		102645541B5CB92500D91102 /* MapViewCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewCon.h; sourceTree = "<group>"; };
+		102645551B5CB92500D91102 /* MapViewCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewCon.m; sourceTree = "<group>"; };
 		104C9AB21B5FE5C000790BDB /* CommunicatorNewWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicatorNewWork.h; sourceTree = "<group>"; };
 		104C9AB31B5FE5C000790BDB /* CommunicatorNewWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunicatorNewWork.m; sourceTree = "<group>"; };
 		105318E51B5E7F6C006708E5 /* collectCuisineTBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectCuisineTBController.h; sourceTree = "<group>"; };
@@ -161,10 +158,8 @@
 		102645A51B5D0F6800D91102 /* DetailMap */ = {
 			isa = PBXGroup;
 			children = (
-				102645541B5CB92500D91102 /* MapTBViewCon.h */,
-				102645551B5CB92500D91102 /* MapTBViewCon.m */,
-				102645571B5CBB8F00D91102 /* DetailMapTBViewCell.h */,
-				102645581B5CBB8F00D91102 /* DetailMapTBViewCell.m */,
+				102645541B5CB92500D91102 /* MapViewCon.h */,
+				102645551B5CB92500D91102 /* MapViewCon.m */,
 			);
 			name = DetailMap;
 			sourceTree = "<group>";
@@ -181,12 +176,12 @@
 		10560CF71B7E52F700F58B80 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				10A496D71B80B005003A62EA /* restaurantPlist.plist */,
 				10A496971B7FC7C0003A62EA /* CoreLoaction */,
 				10A496961B7FC7AE003A62EA /* NewWork */,
 				10A496DB1B81287C003A62EA /* PlistManager */,
 				1057EEC61B7CFF6D004FA351 /* DataSource.h */,
 				1057EEC71B7CFF6D004FA351 /* DataSource.m */,
+				10A496D71B80B005003A62EA /* restaurantPlist.plist */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -496,7 +491,6 @@
 				105D723E1B5A155E00F624BD /* LocalCuisineTBViewCell.m in Sources */,
 				105D726C1B5C05BB00F624BD /* WebViewController.m in Sources */,
 				105318EA1B5E800A006708E5 /* collectCuisineTBViewCell.m in Sources */,
-				102645591B5CBB8F00D91102 /* DetailMapTBViewCell.m in Sources */,
 				1097C7641B506A0C0071E943 /* ViewController.m in Sources */,
 				1057EEC81B7CFF6D004FA351 /* DataSource.m in Sources */,
 				1097C7611B506A0C0071E943 /* AppDelegate.m in Sources */,
@@ -506,7 +500,7 @@
 				105D72381B5A14C500F624BD /* LocalCuisineTBViewCon.m in Sources */,
 				105318F01B5F1EB0006708E5 /* RestaurantCollection.m in Sources */,
 				10A496D61B80AEBB003A62EA /* PlistManager.m in Sources */,
-				102645561B5CB92500D91102 /* MapTBViewCon.m in Sources */,
+				102645561B5CB92500D91102 /* MapViewCon.m in Sources */,
 				1097C75E1B506A0C0071E943 /* main.m in Sources */,
 				104C9AB41B5FE5C000790BDB /* CommunicatorNewWork.m in Sources */,
 				10A496921B7F9D3D003A62EA /* Reachability.m in Sources */,

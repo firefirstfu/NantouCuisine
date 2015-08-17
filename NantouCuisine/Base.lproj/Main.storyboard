@@ -318,7 +318,7 @@
                     <navigationItem key="navigationItem" title="在地美食" id="C2V-Mi-oVE">
                         <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="cJk-HX-cGL">
                             <connections>
-                                <segue destination="eKh-fO-cCO" kind="unwind" unwindAction="backToMaster:" id="6u6-st-oND"/>
+                                <action selector="back:" destination="3KT-Oj-vg5" id="W6a-tK-TTh"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="HWI-QN-lEy">
@@ -337,7 +337,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QvN-ga-sXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="eKh-fO-cCO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-637" y="-512"/>
         </scene>
@@ -373,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1l4-OM-j6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-189" y="-512"/>
+            <point key="canvasLocation" x="-240" y="-512"/>
         </scene>
         <!--在地美食-->
         <scene sceneID="bf3-Mk-trL">
@@ -411,118 +410,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQA-zm-jwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1518" y="880"/>
-        </scene>
-        <!--在地美食-->
-        <scene sceneID="pEm-Sq-enR">
-            <objects>
-                <tableViewController storyboardIdentifier="detail_2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dbS-Iv-qSI" customClass="MapTBViewCon" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="177" sectionHeaderHeight="22" sectionFooterHeight="22" id="bv2-gs-rqx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell0" rowHeight="164" id="Err-3U-v2j" customClass="DetailMapTBViewCell">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Err-3U-v2j" id="T10-Jb-iMO">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aP3-Y3-yyY">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="164"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="aP3-Y3-yyY" firstAttribute="leading" secondItem="T10-Jb-iMO" secondAttribute="leadingMargin" constant="-8" id="HIb-up-10E"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="aP3-Y3-yyY" secondAttribute="bottom" constant="-9" id="P2z-0G-pmo"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="aP3-Y3-yyY" secondAttribute="trailing" constant="-8" id="PpN-0m-uYY"/>
-                                        <constraint firstItem="aP3-Y3-yyY" firstAttribute="top" secondItem="T10-Jb-iMO" secondAttribute="topMargin" constant="-8" id="V64-wM-zgL"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="storeImageView" destination="aP3-Y3-yyY" id="64a-wz-4Fw"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell1" rowHeight="34" id="fyE-jC-sam" customClass="DetailMapTBViewCell">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fyE-jC-sam" id="Ou5-BP-1tN">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Unk-4L-VwJ">
-                                            <rect key="frame" x="0.0" y="3" width="320" height="29"/>
-                                            <segments>
-                                                <segment title="資訊"/>
-                                                <segment title="位置"/>
-                                                <segment title="分享"/>
-                                            </segments>
-                                        </segmentedControl>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Unk-4L-VwJ" firstAttribute="top" secondItem="Ou5-BP-1tN" secondAttribute="topMargin" constant="-5" id="9ex-xq-Xuy"/>
-                                        <constraint firstItem="Unk-4L-VwJ" firstAttribute="leading" secondItem="Ou5-BP-1tN" secondAttribute="leadingMargin" constant="-8" id="LKE-fX-dsz"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Unk-4L-VwJ" secondAttribute="trailing" constant="-8" id="OaP-80-IqE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Unk-4L-VwJ" secondAttribute="bottom" constant="-6" id="ts4-cF-zko"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="selectInformationMenu" destination="Unk-4L-VwJ" id="uP4-c5-aEj"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="349" id="mdh-Zn-kP7" customClass="DetailMapTBViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mdh-Zn-kP7" id="dGR-Ux-tWz">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KG1-6o-4Yr">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="355"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="dbS-Iv-qSI" id="3nL-Yf-waO"/>
-                                            </connections>
-                                        </mapView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="KG1-6o-4Yr" firstAttribute="top" secondItem="dGR-Ux-tWz" secondAttribute="topMargin" constant="-8" id="HIu-x7-KDm"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="KG1-6o-4Yr" secondAttribute="trailing" constant="-8" id="ghh-gs-3hb"/>
-                                        <constraint firstItem="KG1-6o-4Yr" firstAttribute="leading" secondItem="dGR-Ux-tWz" secondAttribute="leadingMargin" constant="-8" id="nvN-FE-441"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="KG1-6o-4Yr" secondAttribute="bottom" constant="-15" id="u3m-81-eI2"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="restaurantMapView" destination="KG1-6o-4Yr" id="fJh-W4-TZh"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="dbS-Iv-qSI" id="2T3-0R-tMj"/>
-                            <outlet property="delegate" destination="dbS-Iv-qSI" id="hHP-lE-Ht7"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="在地美食" id="2mr-WT-XgU">
-                        <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="LBO-HV-9b2">
-                            <connections>
-                                <segue destination="sbF-M6-63O" kind="unwind" unwindAction="backToMaster:" id="KhP-sr-SPb"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="bon-dM-pAI">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="DGy-P9-1JI">
-                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="choiceMyLoveButton:" destination="dbS-Iv-qSI" eventType="valueChanged" id="nG7-cl-Ekc"/>
-                                </connections>
-                            </switch>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="choiceMyLove" destination="DGy-P9-1JI" id="feI-U3-olV"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bDa-rM-wE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="sbF-M6-63O" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="-642" y="206"/>
+            <point key="canvasLocation" x="-1518" y="122"/>
         </scene>
         <!--美食收藏-->
         <scene sceneID="JYD-W2-neB">
@@ -547,7 +435,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGk-XT-xMw">
                                             <rect key="frame" x="88" y="35" width="136" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-sF-aTP">
@@ -593,7 +481,38 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fb4-qc-HSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1090" y="206"/>
+            <point key="canvasLocation" x="-1100" y="122"/>
+        </scene>
+        <!--Map View Con-->
+        <scene sceneID="cmL-cH-UkO">
+            <objects>
+                <viewController storyboardIdentifier="mapViewCon" id="TFP-n3-Mz8" customClass="MapViewCon" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="887-rf-9ee"/>
+                        <viewControllerLayoutGuide type="bottom" id="lzR-mV-yoD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yJL-aa-dmP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KG1-6o-4Yr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TFP-n3-Mz8" id="ga5-oq-LTq"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="restaurantMapView" destination="KG1-6o-4Yr" id="ude-nw-XdM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7z-G6-5Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-637" y="122"/>
         </scene>
     </scenes>
 </document>

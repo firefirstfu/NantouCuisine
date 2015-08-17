@@ -56,6 +56,14 @@
     cell.restaurantNameLbl.text = nil;
     cell.restaurantNameLbl.text = [_nantouData.myLoveAllRestaurants[indexPath.row] name];
     
+    //設定文字的斷點
+    cell.restaurantNameLbl.lineBreakMode = NSLineBreakByTruncatingTail;
+    //設定文字的粗體和大小
+    cell.restaurantNameLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+    //設定文字的粗體和大小
+    cell.nantouStateLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+
+    
     //計算距離及區域
     //取餐廳經緯度
     double latitude = [[_nantouData.myLoveAllRestaurants[indexPath.row] latitude] doubleValue];
@@ -91,8 +99,6 @@
     DetailLocalCuisineTBViewCon *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_1"];
     vc.restaurantNumber = [_nantouData.myLoveAllRestaurants[indexPath.row] resNumber];
     [self.navigationController pushViewController:vc animated:nil];
-//    NSLog(@"%d", [_nantouData._nantouData.myLoveAllRestaurants[indexPath.row] resNumber]);
-//    NSLog(@"%@", [_nantouData.allRestaruants[indexPath.row] name]);
 }
 
 
