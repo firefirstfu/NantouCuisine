@@ -24,6 +24,7 @@
     //位置管理員
     _location = [[LocationManager alloc] init];
     _nantouData = [DataSource shared];
+    
     [_nantouData getALllMyLoveRestaurants:^(BOOL completion) {
         if (completion) {
             [self.tableView reloadData];
@@ -38,7 +39,6 @@
     if (completion) {
         [self.tableView reloadData];
     }}];
-    
 }
 
 
@@ -83,36 +83,7 @@
                withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
                    cell.storeImageView.image = returnImage;
                }];
-    
     return cell;
 }
-
-
-
-
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-
 
 @end

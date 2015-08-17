@@ -8,6 +8,7 @@
 #import "DataSource.h"
 
 
+
 @interface DetailLocalCuisineTBViewCon ()
 
 @property (nonatomic, strong) DetailLocalCuisineTBViewCell *cell;
@@ -148,8 +149,12 @@
     _tmpRestaurant = _nantouData.allRestaruants[_restaurantNumber];
     if (_myLoveChoice.isOn == YES) {
         _tmpRestaurant.collected = YES;
+        [_nantouData saveMyLoveToPlsit:[_tmpRestaurant name] choiceOfBool:YES];
+        
     }else{
         _tmpRestaurant.collected = NO;
+        [_nantouData saveMyLoveToPlsit:[_tmpRestaurant name] choiceOfBool:NO];
+
     }
 }
 

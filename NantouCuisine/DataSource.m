@@ -80,10 +80,7 @@ static DataSource *_MySingleTon = nil;
         //這裡資料的處理部份，還要再重構。邏輯太過繁複不好懂
         [self saveDataToModel];
     }
-   
 }
-
-
 
 
 -(void) saveDataToModel{
@@ -112,11 +109,11 @@ static DataSource *_MySingleTon = nil;
     }
     //最後return給前端用的資料-->nsmutablearray
     //singleTon物件
-     _allRestaruants = restaurants.infoCollections;
+    _allRestaruants = restaurants.infoCollections;
 }
 
 
-
+//取得所有我的最愛的餐
 -(void) getALllMyLoveRestaurants:(void(^)(BOOL completion))completion{
     _myLoveAllRestaurants = [[NSMutableArray alloc] init];
     for (Restaurant *res in _allRestaruants) {
@@ -127,6 +124,13 @@ static DataSource *_MySingleTon = nil;
     completion(YES);
 }
 
+//儲存我的最愛到plist
+-(void) saveMyLoveToPlsit:(NSString*)restaurantName choiceOfBool:(BOOL)choiceOfBool{
+    NSMutableDictionary *returnPlistDict = [_plistMananger getDataInPlist];
+    NSMutableDictionary *keyDic = [returnPlistDict objectForKey:restaurantName];
+    [keyDic setObject:[NSNumber numberWithBool:choiceOfBool] forKey:@"collected"];
+    [_plistMananger updateDataInPlist:returnPlistDict];
+}
 
 
 
