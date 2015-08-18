@@ -16,8 +16,8 @@
 		105318ED1B5F1C30006708E5 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318EC1B5F1C30006708E5 /* Restaurant.m */; };
 		105318F01B5F1EB0006708E5 /* RestaurantCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */; };
 		105775441B617046005374C7 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 105775431B617046005374C7 /* 1.jpg */; };
-		1057EEC81B7CFF6D004FA351 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1057EEC71B7CFF6D004FA351 /* DataSource.m */; };
-		105D72381B5A14C500F624BD /* LocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D72371B5A14C500F624BD /* LocalCuisineTBViewCon.m */; };
+		1057EEC81B7CFF6D004FA351 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1057EEC71B7CFF6D004FA351 /* DataSource.m */; settings = {COMPILER_FLAGS = " -Wno-shorten-64-to-32 "; }; };
+		105D72381B5A14C500F624BD /* LocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D72371B5A14C500F624BD /* LocalCuisineTBViewCon.m */; settings = {COMPILER_FLAGS = " -Wno-shorten-64-to-32 "; }; };
 		105D723B1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723A1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m */; };
 		105D723E1B5A155E00F624BD /* LocalCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723D1B5A155E00F624BD /* LocalCuisineTBViewCell.m */; };
 		105D72411B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D72401B5A15A300F624BD /* DetailLocalCuisineTBViewCell.m */; };

@@ -4,7 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -180,13 +179,13 @@
                                     <outlet property="selectInformationMenu" destination="Oz0-n9-WT4" id="6zX-u8-cEd"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell2" rowHeight="34" id="SPl-wX-ZEh" customClass="DetailLocalCuisineTBViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell2" rowHeight="44" id="SPl-wX-ZEh" customClass="DetailLocalCuisineTBViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SPl-wX-ZEh" id="HBH-XW-apw">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店家" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjn-df-IJR">
-                                            <rect key="frame" x="8" y="0.0" width="304" height="36"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店家" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjn-df-IJR">
+                                            <rect key="frame" x="8" y="4" width="304" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="Mir-D1-F9E"/>
                                             </constraints>
@@ -196,50 +195,46 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qjn-df-IJR" firstAttribute="top" secondItem="HBH-XW-apw" secondAttribute="topMargin" constant="-8" id="5iw-4h-lKO"/>
+                                        <constraint firstItem="qjn-df-IJR" firstAttribute="top" secondItem="HBH-XW-apw" secondAttribute="topMargin" constant="-4" id="5iw-4h-lKO"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="qjn-df-IJR" secondAttribute="trailing" id="8JD-mm-1cJ"/>
                                         <constraint firstItem="qjn-df-IJR" firstAttribute="leading" secondItem="HBH-XW-apw" secondAttribute="leadingMargin" id="Yov-pq-QCL"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="qjn-df-IJR" secondAttribute="bottom" constant="-11" id="eaM-hf-EaY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="qjn-df-IJR" secondAttribute="bottom" constant="-5" id="eaM-hf-EaY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="restaurantNameLbl" destination="qjn-df-IJR" id="qgr-Hz-bH5"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell3" rowHeight="33" id="lcb-1i-KXM" customClass="DetailLocalCuisineTBViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell3" rowHeight="44" id="lcb-1i-KXM" customClass="DetailLocalCuisineTBViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lcb-1i-KXM" id="Vvh-O3-RbD">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="住址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ6-kQ-V6Z">
-                                            <rect key="frame" x="8" y="-2" width="287" height="36"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="287" id="QpV-QV-kRa"/>
-                                                <constraint firstAttribute="height" constant="36" id="bri-WX-YWt"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="住址" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ6-kQ-V6Z">
+                                            <rect key="frame" x="8" y="4" width="287" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="xQ6-kQ-V6Z" firstAttribute="top" secondItem="Vvh-O3-RbD" secondAttribute="topMargin" constant="-10" id="3Zt-xa-F3f"/>
-                                        <constraint firstItem="xQ6-kQ-V6Z" firstAttribute="leading" secondItem="Vvh-O3-RbD" secondAttribute="leadingMargin" id="gcJ-d0-OSO"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="xQ6-kQ-V6Z" secondAttribute="bottom" constant="-10" id="i2W-4T-Zns"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="xQ6-kQ-V6Z" secondAttribute="trailing" constant="17" id="yKc-bg-7dB"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="xQ6-kQ-V6Z" secondAttribute="bottom" constant="5" id="2cH-kV-GWD"/>
+                                        <constraint firstItem="xQ6-kQ-V6Z" firstAttribute="top" secondItem="Vvh-O3-RbD" secondAttribute="topMargin" constant="4" id="6NM-ic-En6"/>
+                                        <constraint firstItem="xQ6-kQ-V6Z" firstAttribute="leading" secondItem="Vvh-O3-RbD" secondAttribute="leadingMargin" id="7Yl-2d-5GU"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xQ6-kQ-V6Z" secondAttribute="trailing" constant="17" id="bYl-tO-eDT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLbl" destination="xQ6-kQ-V6Z" id="TKi-dO-55X"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell4" rowHeight="33" id="YPd-1z-f63" customClass="DetailLocalCuisineTBViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell4" rowHeight="44" id="YPd-1z-f63" customClass="DetailLocalCuisineTBViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YPd-1z-f63" id="CPl-ym-YMy">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQC-Yz-09o">
-                                            <rect key="frame" x="8" y="-2" width="304" height="36"/>
+                                            <rect key="frame" x="8" y="4" width="304" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="304" id="I8O-za-XlH"/>
                                                 <constraint firstAttribute="height" constant="36" id="tPg-zs-Z64"/>
@@ -251,36 +246,31 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="AQC-Yz-09o" secondAttribute="trailing" id="JEO-jC-CZh"/>
-                                        <constraint firstItem="AQC-Yz-09o" firstAttribute="top" secondItem="CPl-ym-YMy" secondAttribute="topMargin" constant="-10" id="aM8-nV-eY4"/>
+                                        <constraint firstItem="AQC-Yz-09o" firstAttribute="top" secondItem="CPl-ym-YMy" secondAttribute="topMargin" constant="-4" id="aM8-nV-eY4"/>
                                         <constraint firstItem="AQC-Yz-09o" firstAttribute="leading" secondItem="CPl-ym-YMy" secondAttribute="leadingMargin" id="flI-5H-Se8"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="AQC-Yz-09o" secondAttribute="bottom" constant="-10" id="hDO-zn-9qv"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AQC-Yz-09o" secondAttribute="bottom" constant="-5" id="hDO-zn-9qv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="phoneNumberLbl" destination="AQC-Yz-09o" id="dUn-1n-ngT"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell5" rowHeight="37" id="Xby-KV-b7z" customClass="DetailLocalCuisineTBViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell5" rowHeight="44" id="Xby-KV-b7z" customClass="DetailLocalCuisineTBViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xby-KV-b7z" id="2el-R5-0Xg">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="網站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Blq-X7-CjZ">
-                                            <rect key="frame" x="8" y="0.0" width="257" height="36"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="Blq-X7-CjZ" secondAttribute="height" multiplier="257:36" id="DMw-pH-UQw"/>
-                                                <constraint firstAttribute="height" constant="36" id="ci7-ky-gUC"/>
-                                                <constraint firstAttribute="width" constant="257" id="ofl-zJ-tdS"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="網站" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Blq-X7-CjZ">
+                                            <rect key="frame" x="8" y="4" width="257" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Blq-X7-CjZ" firstAttribute="top" secondItem="2el-R5-0Xg" secondAttribute="topMargin" constant="-8" id="0FI-i4-gwF"/>
-                                        <constraint firstItem="Blq-X7-CjZ" firstAttribute="leading" secondItem="2el-R5-0Xg" secondAttribute="leadingMargin" id="3i7-F5-6KR"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Blq-X7-CjZ" secondAttribute="bottom" constant="-8" id="9hH-8T-vpz"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Blq-X7-CjZ" secondAttribute="trailing" constant="14" id="m8g-Rd-yv8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Blq-X7-CjZ" secondAttribute="trailing" constant="14" id="7As-lC-VX1"/>
+                                        <constraint firstItem="Blq-X7-CjZ" firstAttribute="leading" secondItem="2el-R5-0Xg" secondAttribute="leadingMargin" id="PYo-dq-0do"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Blq-X7-CjZ" secondAttribute="bottom" constant="5" id="ZNI-bn-OHN"/>
+                                        <constraint firstItem="Blq-X7-CjZ" firstAttribute="top" secondItem="2el-R5-0Xg" secondAttribute="topMargin" constant="4" id="par-zM-xKZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

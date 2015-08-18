@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //自適化TableViewCell高度
-    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.estimatedRowHeight = 50.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     //SingleTon物件
     _nantouData = [DataSource shared];

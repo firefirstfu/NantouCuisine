@@ -101,6 +101,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailLocalCuisineTBViewCon *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"detail_1"];
+    //為何加星號??
     vc.restaurantNumber = [_nantouData.myLoveAllRestaurants[indexPath.row] resNumber];
     [self.navigationController pushViewController:vc animated:nil];
 }

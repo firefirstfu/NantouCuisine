@@ -11,13 +11,11 @@
 
 
 
-@interface LocalCuisineTBViewCon()<UISearchBarDelegate>
+@interface LocalCuisineTBViewCon()
 
 @property(nonatomic, strong) DataSource *nantouData;
 @property(nonatomic, strong) LocationManager *location;
 
-//SearchBar用Array
-@property(nonatomic, strong) NSMutableArray *searchArray;
 @property(nonatomic, strong) NetConnectCheck *netConnectCheck;
 
 @end
