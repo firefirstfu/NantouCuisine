@@ -38,6 +38,7 @@
     if (completion) {
         [self.tableView reloadData];
     }}];
+     [self.tabBarController.tabBar setHidden:NO];
 }
 
 

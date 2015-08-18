@@ -12,7 +12,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //開始轉轉
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     //開啟網頁
     NSString *urlString = _webURL;
     NSURL *url = [NSURL URLWithString:urlString];
@@ -21,11 +22,6 @@
 }
 
 
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    //開始轉轉
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    return YES;
-}
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     //停止轉轉
@@ -34,8 +30,8 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     //產生一個AlertView(打底)
-    UIAlertController *alertView =[UIAlertController alertControllerWithTitle:@"訊息"
-                                                                      message:@"請檢查網路連線..."
+    UIAlertController *alertView =[UIAlertController alertControllerWithTitle:@"連線錯誤"
+                                                                      message:@"連線品質不佳，請稍候再試"
                                                                preferredStyle:UIAlertControllerStyleAlert];
     //作1個Alert按鈕物件
     UIAlertAction *alertEnter = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault
@@ -45,6 +41,7 @@
     [alertView addAction:alertEnter];
     //把AlertView加到View上面
     [self presentViewController:alertView animated:YES completion:nil];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 

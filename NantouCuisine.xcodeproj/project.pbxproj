@@ -408,6 +408,11 @@
 					1097C7571B506A0C0071E943 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = WY468E45SJ;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					1097C7701B506A0C0071E943 = {
 						CreatedOnToolsVersion = 6.4;

@@ -56,20 +56,14 @@
         //把AlertView加到View上面
         [self presentViewController:alertView animated:YES completion:nil];
     } revertConnect:^{
-        UIAlertController *alertView =[UIAlertController alertControllerWithTitle:@"重新連線"
-                                                                          message:@"網路重新連線..."
-                                                                   preferredStyle:UIAlertControllerStyleAlert];
-        //Alert按鈕物件
-        UIAlertAction *alertEnter = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault
-                                                           handler:^(UIAlertAction *aciton){
-                                                           }];
-        //把按鈕加到AlertView上面
-        [alertView addAction:alertEnter];
-        [self presentViewController:alertView animated:YES completion:nil];
     }];
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:NO];
+}
 
 
 
@@ -139,7 +133,7 @@
 
 //更新資料
 - (IBAction)refresh:(id)sender {
-     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [_nantouData getNantouRestaurants:^(BOOL completion) {
         if (completion) {

@@ -34,6 +34,7 @@
     
     //消去TableView最後沒用到的欄位的分隔線
     self.tableView.tableFooterView = [[UIView alloc] init];
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
