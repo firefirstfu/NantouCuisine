@@ -30,7 +30,6 @@
 		1097C76C1B506A0C0071E943 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1097C76A1B506A0C0071E943 /* LaunchScreen.xib */; };
 		1097C7781B506A0C0071E943 /* NantouCuisineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1097C7771B506A0C0071E943 /* NantouCuisineTests.m */; };
 		10A496921B7F9D3D003A62EA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496911B7F9D3D003A62EA /* Reachability.m */; };
-		10A496941B7FA122003A62EA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A496931B7FA122003A62EA /* Social.framework */; };
 		10A4969A1B7FDE3A003A62EA /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496991B7FDE3A003A62EA /* LocationManager.m */; };
 		10A496D61B80AEBB003A62EA /* PlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496D51B80AEBB003A62EA /* PlistManager.m */; };
 		10A496D81B80B005003A62EA /* restaurantPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10A496D71B80B005003A62EA /* restaurantPlist.plist */; };
@@ -106,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10A496941B7FA122003A62EA /* Social.framework in Frameworks */,
 				1026459A1B5CE48B00D91102 /* MapKit.framework in Frameworks */,
 				102645991B5CE48600D91102 /* CoreLocation.framework in Frameworks */,
 				D9BC64A2AB7C758B14E90C91 /* libPods.a in Frameworks */,

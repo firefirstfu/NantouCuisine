@@ -6,9 +6,6 @@
 #import "CommunicatorNewWork.h"
 #import "MapViewCon.h"
 #import "DataSource.h"
-#import <Social/Social.h>
-
-
 
 @interface DetailLocalCuisineTBViewCon ()
 
@@ -102,35 +99,11 @@
             //StoryBoard跳轉
             [self gotAnother];
             break;
-        case 2:
-            [self shareMyLove];
-            break;
         default:
             break;
     }
 }
 
-//分享到Facebook?????
--(void) shareMyLove{
-    //好像一次只能跳出一個分享-->這裡是Facebook
-    SLComposeViewController *socialControl = [SLComposeViewController
-                                              composeViewControllerForServiceType:SLServiceTypeFacebook];
-    // add initial text
-    [socialControl setInitialText:[_nantouData.allRestaruants[_restaurantNumber] address]];
-    // add an image
-    //非同步遠端下載image
-    NSString *urlStr = [_nantouData.allRestaruants[_restaurantNumber] imagePath];
-    [CommunicatorNewWork fetchImage:urlStr withSetImageView:_cell.storeImageView
-               withPlaceHolderImage:nil withCompletionImage:^(id returnImage) {
-                   [socialControl addImage:returnImage];
-               }];
-    // add a URL
-    [socialControl addURL:[NSURL URLWithString:[_nantouData.allRestaruants[_restaurantNumber] webSite]]];
-    // present controller
-    [self presentViewController:socialControl animated:YES completion:nil];
-    
-  
-}
 
 
 //StoryBoard跳轉

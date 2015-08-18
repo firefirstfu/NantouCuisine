@@ -85,7 +85,9 @@
                                         <constraint firstItem="ePt-hW-hHV" firstAttribute="firstBaseline" secondItem="n5e-Fb-V6Y" secondAttribute="firstBaseline" id="JTU-Gx-7fj"/>
                                         <constraint firstItem="ePt-hW-hHV" firstAttribute="leading" secondItem="n5e-Fb-V6Y" secondAttribute="trailing" constant="-18" id="XH2-4e-PbK"/>
                                         <constraint firstItem="49t-SD-lOV" firstAttribute="leading" secondItem="n5e-Fb-V6Y" secondAttribute="leading" id="ZaX-RW-iLV"/>
+                                        <constraint firstItem="fjb-Hf-fcg" firstAttribute="leading" secondItem="sX8-nk-wd1" secondAttribute="leadingMargin" id="a4g-dS-1Xl"/>
                                         <constraint firstItem="ePt-hW-hHV" firstAttribute="top" secondItem="sX8-nk-wd1" secondAttribute="topMargin" id="bAR-B5-gwW"/>
+                                        <constraint firstItem="fjb-Hf-fcg" firstAttribute="leading" secondItem="sX8-nk-wd1" secondAttribute="leadingMargin" id="e8M-u9-Gb2"/>
                                         <constraint firstItem="ePt-hW-hHV" firstAttribute="firstBaseline" secondItem="n5e-Fb-V6Y" secondAttribute="baseline" id="yIy-dR-HNn"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -164,7 +166,6 @@
                                             <segments>
                                                 <segment title="資訊"/>
                                                 <segment title="位置"/>
-                                                <segment title="分享"/>
                                             </segments>
                                         </segmentedControl>
                                     </subviews>
