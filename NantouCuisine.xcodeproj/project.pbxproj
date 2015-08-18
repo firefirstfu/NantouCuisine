@@ -33,7 +33,7 @@
 		10A4969A1B7FDE3A003A62EA /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496991B7FDE3A003A62EA /* LocationManager.m */; };
 		10A496D61B80AEBB003A62EA /* PlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A496D51B80AEBB003A62EA /* PlistManager.m */; };
 		10A496D81B80B005003A62EA /* restaurantPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10A496D71B80B005003A62EA /* restaurantPlist.plist */; };
-		10F863D61B839CB60045A5A4 /* NSObject+CalculateDiffDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F863D41B839CB60045A5A4 /* NSObject+CalculateDiffDays.m */; };
+		10F863D61B839CB60045A5A4 /* NSObject+CalculateDiffDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F863D41B839CB60045A5A4 /* NSObject+CalculateDiffDays.m */; settings = {COMPILER_FLAGS = " -Wno-shorten-64-to-32 "; }; };
 		D9BC64A2AB7C758B14E90C91 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DDE342E5004CC7203E0937 /* libPods.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
