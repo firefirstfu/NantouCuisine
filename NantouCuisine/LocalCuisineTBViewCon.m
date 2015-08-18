@@ -55,6 +55,8 @@
         [alertView addAction:alertEnter];
         //把AlertView加到View上面
         [self presentViewController:alertView animated:YES completion:nil];
+        //停止轉轉
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     } revertConnect:^{
     }];
     
@@ -135,13 +137,31 @@
 - (IBAction)refresh:(id)sender {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [_nantouData getNantouRestaurants:^(BOOL completion) {
-        if (completion) {
-            [self.tableView reloadData];
-            //停止轉轉
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        }
+    
+    [_netConnectCheck networkConnectCheck:nil breakConnect:^{
+        UIAlertController *alertView =[UIAlertController alertControllerWithTitle:@"連線錯誤"
+                                                                          message:@"連線品質不佳，請稍候再試"
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+        //Alert按鈕物件
+        UIAlertAction *alertEnter = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction *aciton){
+                                                           }];
+        //把按鈕加到AlertView上面
+        [alertView addAction:alertEnter];
+        //把AlertView加到View上面
+        [self presentViewController:alertView animated:YES completion:nil];
+        //停止轉轉
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    } revertConnect:^{
+        [_nantouData getNantouRestaurants:^(BOOL completion) {
+            if (completion) {
+                [self.tableView reloadData];
+                //停止轉轉
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }
+        }];
     }];
+
 }
 
 //切換Master(只能往回跳)—>Exit出口方法
