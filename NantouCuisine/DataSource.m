@@ -4,6 +4,7 @@
 #import "CommunicatorNewWork.h"
 #import "XMLReader.h"
 #import "PlistManager.h"
+#import "NSObject+CalculateDiffDays.h"
 
 @interface DataSource ()
 
@@ -13,6 +14,9 @@
 //Plist用
 @property(nonatomic, strong) PlistManager *plistMananger;
 @property(nonatomic, strong) NSMutableDictionary *saveDict;
+
+@property(nonatomic, strong) NSString *myDate;
+@property(nonatomic, strong) NSMutableArray *myLoveTempArray;
 
 @end
 
@@ -40,6 +44,7 @@ static DataSource *_MySingleTon = nil;
             NSError *parseError = nil;
             NSDictionary *tempDictionary = [XMLReader dictionaryForXMLData:result error:&parseError];
             self.nantouOpenDataArray = tempDictionary[@"XML_Head"][@"Infos"][@"Info"];
+            _myDate = tempDictionary[@"XML_Head"][@"Updatetime"];
             [self getAllRestaurants];
             completion(YES);
         }
@@ -73,11 +78,40 @@ static DataSource *_MySingleTon = nil;
         [_plistMananger updateDataInPlist:_saveDict];
         [self saveDataToModel];
         
-    }else{
-        //這裡要加上日期的時間的比較。我的設定是如果不超過20天，就不用更新data。因為政府的open data的更新資料的速度不快。
-        //如果>20天的話，才需要從南投政府那邊再重新下載data，不然直接從plist檔撈資料
+    }else if ([NSObject calculateDiffDay:_myDate] > 1){
+        //這裡要加上日期的時間的比較。我的設定是如果不超過365天，就不用更新data。因為政府的open data的更新資料的速度不快。
+        //如果>365天的話，才需要從南投政府那邊再重新下載data，不然直接從plist檔撈資料
         //這裡資料的處理部份，還要再重構。邏輯太過繁複不好懂
+        [self findMyLove];
+        int num1 = 0;
+        for (num1 =0; num1 < self.nantouOpenDataArray.count; num1++){
+            NSMutableDictionary *plistTmp = [[NSMutableDictionary alloc] init];
+            [plistTmp setObject:[self.nantouOpenDataArray[num1] valueForKey:@"Name"] forKey:@"name"];
+            [plistTmp setObject:[self.nantouOpenDataArray[num1] valueForKey:@"Description"] forKey:@"introduction"];
+            [plistTmp setObject:[self.nantouOpenDataArray[num1] valueForKey:@"Add"] forKey:@"address"];
+            [plistTmp setObject:[self.nantouOpenDataArray[num1] valueForKey:@"Zipcode"] forKey:@"states"];
+            [plistTmp setObject:[self.nantouOpenDataArray[num1] valueForKey:@"Tel"] forKey:@"phoneNumber"];
+            [plistTmp setObject:[self.nantouOpenDataArray[num1] valueForKey:@"Website"] forKey:@"webSite"];
+            [plistTmp setObject:[self.nantouOpenDataArray[num1] valueForKey:@"Picture1"] forKey:@"imagePath"];
+            //經度
+            [plistTmp setObject:[self.nantouOpenDataArray[num1] valueForKey:@"Px"] forKey:@"longitude"];
+            //緯度
+            [plistTmp setObject:[self.nantouOpenDataArray[num1] valueForKey:@"Py"] forKey:@"latitude"];
+            [plistTmp setValue:[NSNumber numberWithBool:NO] forKey:@"collected"];
+            
+            for (NSString *tempName in _myLoveTempArray) {
+                if ([tempName isEqualToString:[self.nantouOpenDataArray[num1] valueForKey:@"Name"]]) {
+                    //收藏(我的最愛)-->存布林值
+                    [plistTmp setValue:[NSNumber numberWithBool:YES] forKey:@"collected"];
+                }
+            }
+            
+            [_saveDict setObject:plistTmp forKey:[self.nantouOpenDataArray[num1] valueForKey:@"Name"]];
+        }
+        [_plistMananger updateDataInPlist:_saveDict];
         [self saveDataToModel];
+    }else{
+         [self saveDataToModel];
     }
 }
 
@@ -130,6 +164,24 @@ static DataSource *_MySingleTon = nil;
     NSMutableDictionary *keyDic = [returnPlistDict objectForKey:restaurantName];
     [keyDic setObject:[NSNumber numberWithBool:choiceOfBool] forKey:@"collected"];
     [_plistMananger updateDataInPlist:returnPlistDict];
+}
+
+-(void)findMyLove{
+    _myLoveTempArray = [[NSMutableArray alloc] init];
+    NSMutableDictionary *returnPlistDict = [_plistMananger getDataInPlist];
+    //取得所有的values-->餐廳的陣列
+    NSArray *retaruaantsArray = [returnPlistDict allValues];
+    int num = 0;
+    for (num =0; num < [retaruaantsArray count]; num++) {
+        //餐廳初始化
+        Restaurant *res = [[Restaurant alloc] init];
+        res.name = [[retaruaantsArray objectAtIndex:num] objectForKey:@"name"];
+        res.collected = [[[retaruaantsArray objectAtIndex:num] objectForKey:@"collected"] boolValue];
+        if (res.collected == YES) {
+            [_myLoveTempArray addObject:res.name];
+        }
+    }
+
 }
 
 
