@@ -15,7 +15,6 @@
 		105318EA1B5E800A006708E5 /* collectCuisineTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318E91B5E800A006708E5 /* collectCuisineTBViewCell.m */; };
 		105318ED1B5F1C30006708E5 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318EC1B5F1C30006708E5 /* Restaurant.m */; };
 		105318F01B5F1EB0006708E5 /* RestaurantCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */; };
-		105775441B617046005374C7 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 105775431B617046005374C7 /* 1.jpg */; };
 		1057EEC81B7CFF6D004FA351 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1057EEC71B7CFF6D004FA351 /* DataSource.m */; settings = {COMPILER_FLAGS = " -Wno-shorten-64-to-32 "; }; };
 		105D72381B5A14C500F624BD /* LocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D72371B5A14C500F624BD /* LocalCuisineTBViewCon.m */; settings = {COMPILER_FLAGS = " -Wno-shorten-64-to-32 "; }; };
 		105D723B1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105D723A1B5A151A00F624BD /* DetailLocalCuisineTBViewCon.m */; };
@@ -60,7 +59,6 @@
 		105318EC1B5F1C30006708E5 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		105318EE1B5F1EB0006708E5 /* RestaurantCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantCollection.h; sourceTree = "<group>"; };
 		105318EF1B5F1EB0006708E5 /* RestaurantCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantCollection.m; sourceTree = "<group>"; };
-		105775431B617046005374C7 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		1057EEC61B7CFF6D004FA351 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		1057EEC71B7CFF6D004FA351 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		105D72321B5A0EF600F624BD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -169,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				1097C7651B506A0C0071E943 /* Main.storyboard */,
-				10560CF81B7E5C8300F58B80 /* Images */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -187,14 +184,6 @@
 				10A496DB1B81287C003A62EA /* PlistManager */,
 			);
 			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		10560CF81B7E5C8300F58B80 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				105775431B617046005374C7 /* 1.jpg */,
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 		105D722F1B59E2F300F624BD /* NantouRestaurant */ = {
@@ -451,7 +440,6 @@
 				1097C7671B506A0C0071E943 /* Main.storyboard in Resources */,
 				1097C76C1B506A0C0071E943 /* LaunchScreen.xib in Resources */,
 				1097C7691B506A0C0071E943 /* Images.xcassets in Resources */,
-				105775441B617046005374C7 /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
