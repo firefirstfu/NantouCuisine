@@ -21,16 +21,20 @@
         //初始化地理位置管理員
         _myLocationManager = [[CLLocationManager alloc] init];
         //設定精確度
-        //[locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        [_myLocationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
         //設定委託給viewController
         _myLocationManager.delegate = self;
+        
         //判別是否有支援這個方法-->才用的手法-->因為此方法在ios8以後才支援
-        if ([_myLocationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        if ([_myLocationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
             //此方法在ios8以後才支援
-            [_myLocationManager requestAlwaysAuthorization];
+            [_myLocationManager requestWhenInUseAuthorization];
         }
         //開始計算所在位地置的功能
         [_myLocationManager startUpdatingLocation];
+
+        
+       
         return self;
     }
     return  nil;
